@@ -10,7 +10,7 @@
     "dev:api": "cd apps/api && python3 -m uvicorn ideaos.main:app --reload --port 8000",
     "dev:web": "cd apps/web && npm run dev",
     "test:api": "python3 -m pytest apps/api/tests",
-    "build": "turbo run build",
+    "build": "npm run build --prefix apps/web",
     "lint": "turbo run lint",
     "test": "turbo run test",
     "db:generate": "turbo run db:generate",
