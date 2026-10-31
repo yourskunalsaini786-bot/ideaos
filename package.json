@@ -2,23 +2,18 @@
   "name": "ideaos",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/web"
   ],
   "scripts": {
-    "dev": "turbo run dev",
+    "dev": "npm run dev --prefix apps/web",
     "dev:api": "cd apps/api && python3 -m uvicorn ideaos.main:app --reload --port 8000",
-    "dev:web": "cd apps/web && npm run dev",
+    "dev:web": "npm run dev --prefix apps/web",
     "test:api": "python3 -m pytest apps/api/tests",
     "build": "npm run build --prefix apps/web",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
-    "db:generate": "turbo run db:generate",
-    "db:migrate": "turbo run db:migrate",
-    "db:studio": "turbo run db:studio"
+    "lint": "npm run lint --prefix apps/web",
+    "test": "npm run test:api"
   },
   "devDependencies": {
-    "turbo": "^2.0.0",
     "typescript": "^5.4.0",
     "@types/node": "^20.11.0"
   },
