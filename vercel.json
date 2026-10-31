@@ -1,45 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "services": {
-    "frontend": {
-      "root": "apps/web/",
-      "framework": "nextjs"
-    },
-    "backend": {
-      "root": "apps/api/",
-      "entrypoint": "main.py"
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": {
-        "service": "backend"
-      }
-    },
-    {
-      "source": "/health",
-      "destination": {
-        "service": "backend"
-      }
-    },
-    {
-      "source": "/docs",
-      "destination": {
-        "service": "backend"
-      }
-    },
-    {
-      "source": "/openapi.json",
-      "destination": {
-        "service": "backend"
-      }
-    },
-    {
-      "source": "/(.*)",
-      "destination": {
-        "service": "frontend"
-      }
-    }
-  ]
+  "framework": "nextjs",
+  "buildCommand": "npm run build --prefix apps/web",
+  "outputDirectory": "apps/web/.next"
 }
