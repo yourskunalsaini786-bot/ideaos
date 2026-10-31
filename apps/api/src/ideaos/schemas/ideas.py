@@ -1,6 +1,6 @@
 """Idea schemas."""
 from uuid import UUID
-from typing import Optional, List, Dict, Any, Literal
+from typing import Optional, List, Dict, Any, Literal, Union
 from pydantic import BaseModel, ConfigDict, Field
 from datetime import datetime
 
@@ -63,7 +63,7 @@ class IdeaCreate(BaseModel):
     content_pillar: Optional[str] = None
     suggested_formats: List[str] = Field(default_factory=list)
     suggested_platforms: List[str] = Field(default_factory=list)
-    keywords_entities: List[Dict[str, Any]] = Field(default_factory=list)
+    keywords_entities: List[Union[Dict[str, Any], str]] = Field(default_factory=list)
     status: str = "candidate"
     capture_id: Optional[UUID] = None
 
@@ -81,7 +81,7 @@ class IdeaUpdate(BaseModel):
     content_pillar: Optional[str] = None
     suggested_formats: Optional[List[str]] = None
     suggested_platforms: Optional[List[str]] = None
-    keywords_entities: Optional[List[Dict[str, Any]]] = None
+    keywords_entities: Optional[List[Union[Dict[str, Any], str]]] = None
     status: Optional[str] = None
 
 
@@ -103,7 +103,7 @@ class IdeaResponse(BaseModel):
     content_pillar: Optional[str] = None
     suggested_formats: List[str]
     suggested_platforms: List[str]
-    keywords_entities: List[Dict[str, Any]]
+    keywords_entities: List[Union[Dict[str, Any], str]] = []
     embedding: Optional[List[float]] = None
     status: str
     version: int

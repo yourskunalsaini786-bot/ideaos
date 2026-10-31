@@ -22,23 +22,40 @@ from ideaos.schemas.ideas import (
     FusionEditRequest,
 )
 
+from ideaos.core.config import get_settings
+
+settings = get_settings()
 router = APIRouter()
 
 
-async def get_current_workspace_id(request: Request) -> UUID:
+async def get_current_workspace_id(request: Request, db: AsyncSession = Depends(get_db)) -> UUID:
     """Extract workspace_id from request state with dev fallback."""
     workspace_id = getattr(request.state, "workspace_id", None)
-    if not workspace_id:
+    if workspace_id:
+        return UUID(str(workspace_id))
+    if settings.ENVIRONMENT == "development":
+        from ideaos.models import Workspace
+        result = await db.execute(select(Workspace.id).limit(1))
+        ws_id = result.scalar_one_or_none()
+        if ws_id:
+            return ws_id
         return UUID("00000000-0000-0000-0000-000000000001")
-    return UUID(workspace_id)
+    raise HTTPException(status_code=401, detail="Workspace context required")
 
 
-async def get_current_user_id(request: Request) -> UUID:
+async def get_current_user_id(request: Request, db: AsyncSession = Depends(get_db)) -> UUID:
     """Extract user_id from request state with dev fallback."""
     user_id = getattr(request.state, "user_id", None)
-    if not user_id:
+    if user_id:
+        return UUID(str(user_id))
+    if settings.ENVIRONMENT == "development":
+        from ideaos.models import User
+        result = await db.execute(select(User.id).limit(1))
+        u_id = result.scalar_one_or_none()
+        if u_id:
+            return u_id
         return UUID("00000000-0000-0000-0000-000000000002")
-    return UUID(user_id)
+    raise HTTPException(status_code=401, detail="Authentication required")
 
 
 @router.get("", response_model=IdeaListResponse)
