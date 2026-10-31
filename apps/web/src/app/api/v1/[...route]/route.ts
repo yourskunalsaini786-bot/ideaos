@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getDb, DEFAULT_WORKSPACE_ID } from "@/lib/db";
 
 // In-memory persistent stores for Serverless lifecycle
 let brandRules = [
@@ -115,14 +116,68 @@ export async function GET(request: NextRequest, { params }: { params: { route: s
   }
 
   if (route === "calendar" || route.startsWith("calendar")) {
+    try {
+      const sql = getDb();
+      const rows = await sql`
+        SELECT id, platform, status, scheduled_at, metadata
+        FROM calendar_items
+        WHERE workspace_id = ${DEFAULT_WORKSPACE_ID}
+        ORDER BY scheduled_at DESC
+        LIMIT 50
+      `;
+      if (rows && rows.length > 0) {
+        return NextResponse.json({ data: rows });
+      }
+    } catch (err) {
+      console.warn("Neon calendar query fallback:", err);
+    }
     return NextResponse.json({ data: calendarItems });
   }
 
   if (route === "brand/rules") {
+    try {
+      const sql = getDb();
+      const rows = await sql`
+        SELECT id, rule_type, pattern, severity, message, examples, applies_to
+        FROM brand_rules
+        WHERE workspace_id = ${DEFAULT_WORKSPACE_ID} AND is_active = true
+        ORDER BY created_at DESC
+        LIMIT 50
+      `;
+      if (rows && rows.length > 0) {
+        const mapped = rows.map((r: any) => ({
+          rule_type: r.rule_type,
+          pattern: r.pattern,
+          severity: r.severity,
+          instruction: r.message,
+          confidence: 0.95,
+          examples: r.examples || [],
+          applies_to: r.applies_to || ["all"],
+        }));
+        return NextResponse.json({ data: mapped });
+      }
+    } catch (err) {
+      console.warn("Neon brand rules query fallback:", err);
+    }
     return NextResponse.json({ data: brandRules });
   }
 
   if (route === "fusion/proposals") {
+    try {
+      const sql = getDb();
+      const rows = await sql`
+        SELECT id, new_idea_id, source_idea_ids, fusion_concept, confidence, content_opportunities, status
+        FROM fusion_proposals
+        WHERE workspace_id = ${DEFAULT_WORKSPACE_ID}
+        ORDER BY created_at DESC
+        LIMIT 20
+      `;
+      if (rows && rows.length > 0) {
+        return NextResponse.json({ data: rows });
+      }
+    } catch (err) {
+      console.warn("Neon fusion proposals query fallback:", err);
+    }
     return NextResponse.json({ data: fusionProposals });
   }
 
@@ -489,20 +544,24 @@ Return strictly valid JSON only.`;
   if (route === "repurpose/edit-and-approve") {
     const { edited_content = "", original_content = "", title = "Approved Post", schedule_time } = body;
 
+    const ruleInstruction =
+      edited_content.length < original_content.length
+        ? "Favor brevity and cut corporate filler in opening sentences"
+        : "Reinforce key takeaways with concrete bullet points";
+
     const newRule = {
       rule_type: "tone_constraint",
-      instruction: edited_content.length < original_content.length
-        ? "Favor brevity and cut corporate filler in opening sentences"
-        : "Reinforce key takeaways with concrete bullet points",
+      instruction: ruleInstruction,
       confidence: 0.95,
     };
     brandRules.unshift(newRule);
 
+    const scheduledIso = schedule_time || new Date(Date.now() + 86400000).toISOString();
     const newCal = {
       id: `cal-${Date.now()}`,
       platform: body.platform || "linkedin",
       status: "scheduled",
-      scheduled_at: schedule_time || new Date(Date.now() + 86400000).toISOString(),
+      scheduled_at: scheduledIso,
       metadata: {
         title,
         format: body.format || "post",
@@ -510,6 +569,32 @@ Return strictly valid JSON only.`;
       },
     };
     calendarItems.unshift(newCal);
+
+    // Persist directly to Neon PostgreSQL database
+    try {
+      const sql = getDb();
+      await sql`
+        INSERT INTO brand_rules (
+          id, workspace_id, rule_type, pattern, severity, message, examples, applies_to, is_active, created_at, updated_at
+        ) VALUES (
+          gen_random_uuid(), ${DEFAULT_WORKSPACE_ID}, 'tone_constraint', 'brevity_rule', 'warning', ${ruleInstruction}, ARRAY['Derived from creator edit diff'], ARRAY['all'], true, NOW(), NOW()
+        )
+      `;
+      const metaJson = JSON.stringify({
+        title,
+        format: body.format || "post",
+        content_preview: edited_content.slice(0, 100),
+      });
+      await sql`
+        INSERT INTO calendar_items (
+          id, workspace_id, platform, status, scheduled_at, metadata, created_at, updated_at
+        ) VALUES (
+          gen_random_uuid(), ${DEFAULT_WORKSPACE_ID}, ${body.platform || "linkedin"}, 'scheduled', ${scheduledIso}, ${metaJson}::jsonb, NOW(), NOW()
+        )
+      `;
+    } catch (err) {
+      console.warn("Neon edit-and-approve insert fallback:", err);
+    }
 
     return NextResponse.json({
       content_output_id: `out-${Date.now()}`,
@@ -553,11 +638,38 @@ Return strictly valid JSON only.`;
       status: "proposed",
     };
     fusionProposals.unshift(proposal);
+
+    // Persist to Neon PostgreSQL
+    try {
+      const sql = getDb();
+      const oppJson = JSON.stringify(proposal.content_opportunities);
+      await sql`
+        INSERT INTO fusion_proposals (
+          id, workspace_id, source_idea_ids, new_idea_id, fusion_concept, confidence, content_opportunities, status, created_at, updated_at
+        ) VALUES (
+          gen_random_uuid(), ${DEFAULT_WORKSPACE_ID}, ARRAY['idea-1', 'idea-secondary'], gen_random_uuid(), ${proposal.fusion_concept}, ${proposal.confidence}, ${oppJson}::jsonb, 'proposed', NOW(), NOW()
+        )
+      `;
+    } catch (err) {
+      console.warn("Neon fusion insert fallback:", err);
+    }
+
     return NextResponse.json(proposal);
   }
 
   // 7. Approve Fusion
   if (route.includes("/approve")) {
+    try {
+      const sql = getDb();
+      await sql`
+        UPDATE fusion_proposals
+        SET status = 'approved', updated_at = NOW()
+        WHERE workspace_id = ${DEFAULT_WORKSPACE_ID}
+      `;
+    } catch (err) {
+      console.warn("Neon fusion approve fallback:", err);
+    }
+
     return NextResponse.json({
       status: "approved",
       message: "Fusion concept approved and promoted to master content pipeline.",
@@ -566,10 +678,27 @@ Return strictly valid JSON only.`;
 
   // 8. Quick Capture
   if (route === "captures") {
+    const sourceText = body.source_text || "";
+    const metaJson = JSON.stringify(body.metadata || { source: "quick_scratchpad" });
+
+    // Persist to Neon PostgreSQL
+    try {
+      const sql = getDb();
+      await sql`
+        INSERT INTO captures (
+          id, workspace_id, type, source_text, status, metadata, created_at, updated_at
+        ) VALUES (
+          gen_random_uuid(), ${DEFAULT_WORKSPACE_ID}, 'text', ${sourceText}, 'unprocessed', ${metaJson}::jsonb, NOW(), NOW()
+        )
+      `;
+    } catch (err) {
+      console.warn("Neon captures insert fallback:", err);
+    }
+
     return NextResponse.json({
       id: `cap-${Date.now()}`,
       status: "captured",
-      source_text: body.source_text || "",
+      source_text: sourceText,
       message: "Note captured successfully in your IdeaOS scratchpad.",
     });
   }
