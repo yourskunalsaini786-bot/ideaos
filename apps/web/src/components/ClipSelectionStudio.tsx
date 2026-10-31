@@ -60,11 +60,15 @@ interface ClipSelectionStudioProps {
 }
 
 export function ClipSelectionStudio({
-  clips = DEFAULT_CLIPS,
+  clips,
   onSelectClipForRepurpose,
 }: ClipSelectionStudioProps) {
-  const displayClips = clips && clips.length > 0 ? clips : DEFAULT_CLIPS;
-  const [selectedClipId, setSelectedClipId] = useState<string>(displayClips[0].clip_id);
+  const [internalClips, setInternalClips] = useState<ClipOpportunity[]>(clips || []);
+  const [selectedClipId, setSelectedClipId] = useState<string>(
+    clips && clips.length > 0 ? clips[0].clip_id : ""
+  );
+
+  const displayClips = internalClips;
   const activeClip = displayClips.find((c) => c.clip_id === selectedClipId) || displayClips[0];
 
   const formatTime = (seconds: number) => {
@@ -97,13 +101,35 @@ export function ClipSelectionStudio({
             {displayClips.length} Opportunities Identified
           </span>
           <span className="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-            Avg Viral Score: 91%
+            Avg Viral Score: {displayClips.length > 0 ? Math.round(displayClips.reduce((acc, c) => acc + c.viral_potential, 0) / displayClips.length) : 0}%
           </span>
         </div>
       </div>
 
-      {/* Main Grid: Left Explainable Cards, Right 9:16 Inspector */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+      {displayClips.length === 0 ? (
+        <div className="p-12 text-center rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-3">
+          <div className="w-12 h-12 mx-auto rounded-full bg-secondary-container/15 flex items-center justify-center text-secondary">
+            <span className="material-symbols-outlined text-[24px]">movie_filter</span>
+          </div>
+          <h3 className="text-sm font-semibold text-on-surface">No Media Clips Extracted Yet</h3>
+          <p className="text-xs text-outline max-w-sm mx-auto">
+            Process a podcast or video in the Ingestion Studio to automatically extract explainable clip opportunities, or load sample clips to test.
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              setInternalClips(DEFAULT_CLIPS);
+              setSelectedClipId(DEFAULT_CLIPS[0].clip_id);
+            }}
+            className="px-3.5 py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-xs font-mono text-secondary border border-secondary/30 transition-all inline-flex items-center gap-1.5"
+          >
+            <span className="material-symbols-outlined text-[16px]">play_circle</span>
+            <span>Load Sample Clips [Demo Mode]</span>
+          </button>
+        </div>
+      ) : (
+        /* Main Grid: Left Explainable Cards, Right 9:16 Inspector */
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
         {/* Left 7 Columns: Clip Opportunity Cards */}
         <div className="lg:col-span-7 space-y-space-md">
           {displayClips.map((clip, index) => {
@@ -262,6 +288,7 @@ export function ClipSelectionStudio({
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 }

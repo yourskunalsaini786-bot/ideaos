@@ -57,8 +57,8 @@ class Settings(BaseSettings):
     # AI Providers (Google Gemini as default)
     AI_PROVIDER: str = "gemini"
     GEMINI_API_KEY: Optional[str] = Field(default=None, description="Google Gemini API key")
-    GEMINI_MODEL: str = "gemini-2.0-flash"
-    GEMINI_MODEL_REASONING: str = "gemini-2.5-pro"
+    GEMINI_MODEL: str = "gemini-3.8-flash"
+    GEMINI_MODEL_REASONING: str = "gemini-3.1-pro-preview"
 
     ANTHROPIC_API_KEY: Optional[str] = None
     ANTHROPIC_MODEL_REASONING: str = "claude-opus-5-5"

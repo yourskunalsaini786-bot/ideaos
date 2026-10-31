@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { api, IngestResponse } from "@/lib/api";
 
 const DEMO_TRANSCRIPT = `Speaker A [00:00]: Welcome back to The Founder's Edge. Today we're deconstructing attention arbitrage and why modern brands must become media operations first.
@@ -26,6 +26,22 @@ export function VideoPodcastStudio({
   const [ingestedData, setIngestedData] = useState<IngestResponse | null>(null);
   const [activeSegmentIndex, setActiveSegmentIndex] = useState(1);
   const [isPlaying, setIsPlaying] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setLoading(true);
+    try {
+      const data = await api.uploadMedia(file, file.name.replace(/\.[^/.]+$/, ""), "Repurposing");
+      setIngestedData(data);
+      onIngestComplete(data);
+    } catch (err: any) {
+      alert("Audio upload error: " + (err.message || String(err)));
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleIngest = async (contentToIngest: string, titleToUse: string) => {
     setLoading(true);
@@ -40,10 +56,33 @@ export function VideoPodcastStudio({
     }
   };
 
+  const handleUrlIngest = () => {
+    if (!mediaUrl.trim()) {
+      alert("Please enter a valid video or podcast URL.");
+      return;
+    }
+    if (!inputText.trim()) {
+      alert(
+        "Remote audio stream scraping requires background transcoding workers. Please paste the episode transcript or notes below to process your content, or click 'Load Demo Episode #48' to test."
+      );
+      return;
+    }
+    handleIngest(inputText.trim(), mediaUrl.trim());
+  };
+
+  const handleTranscriptIngest = () => {
+    if (!inputText.trim()) {
+      alert("Please paste transcript text or dialogue to process.");
+      return;
+    }
+    handleIngest(inputText.trim(), mediaTitle.trim() || "Custom Ingested Media");
+  };
+
   const loadDemo = () => {
     setInputText(DEMO_TRANSCRIPT);
-    setMediaTitle("Episode #48: The Attention Arbitrage: Why Modern Brands Build Media Networks");
-    handleIngest(DEMO_TRANSCRIPT, "Episode #48: The Attention Arbitrage: Why Modern Brands Build Media Networks");
+    const demoTitle = "Episode #48: The Attention Arbitrage [Demo]";
+    setMediaTitle(demoTitle);
+    handleIngest(DEMO_TRANSCRIPT, demoTitle);
   };
 
   return (
@@ -91,6 +130,25 @@ export function VideoPodcastStudio({
               AI speech model will deconstruct audio waveforms, detect speakers, and generate timestamped segments.
             </p>
 
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-lg mx-auto mb-4">
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileUpload}
+                accept="audio/*,video/*"
+                className="hidden"
+              />
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={loading}
+                className="h-10 px-5 rounded-lg bg-secondary/15 hover:bg-secondary/25 text-secondary border border-secondary/40 text-xs font-semibold flex items-center gap-2 shadow-sm transition-all"
+              >
+                <span className="material-symbols-outlined text-[18px]">audio_file</span>
+                <span>{loading ? "Transcribing Audio..." : "Select Audio / Video File"}</span>
+              </button>
+            </div>
+
             <div className="flex items-center justify-center gap-2 max-w-md mx-auto">
               <input
                 type="text"
@@ -101,7 +159,7 @@ export function VideoPodcastStudio({
               />
               <button
                 type="button"
-                onClick={() => handleIngest(DEMO_TRANSCRIPT, mediaUrl || mediaTitle)}
+                onClick={handleUrlIngest}
                 disabled={loading}
                 className="h-9 px-4 rounded-lg bg-primary-container text-on-primary text-xs font-semibold hover:opacity-90 transition-all font-mono"
               >
@@ -125,7 +183,7 @@ export function VideoPodcastStudio({
             <div className="flex justify-end">
               <button
                 type="button"
-                onClick={() => handleIngest(inputText || DEMO_TRANSCRIPT, mediaTitle)}
+                onClick={handleTranscriptIngest}
                 disabled={loading}
                 className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-secondary-container via-primary-container to-tertiary-container text-on-primary text-xs font-semibold hover:opacity-90 shadow-md transition-all"
               >

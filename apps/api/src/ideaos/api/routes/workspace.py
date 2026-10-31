@@ -32,7 +32,7 @@ async def get_current_workspace_id(
     if workspace_id:
         return UUID(str(workspace_id))
     if settings.ENVIRONMENT == "development":
-        result = await db.execute(select(Workspace.id).limit(1))
+        result = await db.execute(select(Workspace.id).order_by(Workspace.created_at.asc()).limit(1))
         ws_id = result.scalar_one_or_none()
         if ws_id:
             return ws_id

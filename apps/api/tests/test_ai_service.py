@@ -109,3 +109,20 @@ def test_learn_brand_rules_from_edit():
         assert "applies_to" in rule
 
     asyncio.run(run())
+
+
+def test_transcribe_audio_bytes():
+    async def run():
+        # Test audio bytes transcription pipeline
+        dummy_audio = b"ID3\x03\x00\x00\x00\x00\x00#TSSE\x00\x00\x00\x0f\x00\x00\x01\xff\xfeL\x00a\x00v\x00f\x005\x008\x00.\x002\x009\x00.\x001\x000\x000\x00"
+        result = await ai_service.transcribe_audio_bytes(dummy_audio, mime_type="audio/mp3", filename="test_episode.mp3")
+        assert "title" in result
+        assert "summary" in result
+        assert "segments" in result
+        assert len(result["segments"]) > 0
+        seg = result["segments"][0]
+        assert "start_time" in seg
+        assert "end_time" in seg
+        assert "speaker" in seg
+
+    asyncio.run(run())

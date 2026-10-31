@@ -80,8 +80,12 @@ async def workspace_context_middleware(request: Request, call_next):
             request.state.workspace_id = token_data.workspace_id
             request.state.user_id = token_data.sub
             request.state.user_role = token_data.role
-        except ValueError:
+        except Exception:
             pass  # Invalid token, let route handle auth
+
+    ws_header = request.headers.get("X-Workspace-Id")
+    if ws_header:
+        request.state.workspace_id = ws_header
 
     response = await call_next(request)
     return response

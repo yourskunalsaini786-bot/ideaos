@@ -94,6 +94,22 @@ export interface FusionProposal {
 }
 
 export const api = {
+  async uploadMedia(file: File, title?: string, content_pillar = "Repurposing", media_type = "podcast"): Promise<IngestResponse> {
+    const formData = new FormData();
+    formData.append("file", file);
+    if (title) formData.append("title", title);
+    formData.append("content_pillar", content_pillar);
+    formData.append("media_type", media_type);
+
+    const res = await fetch(`${API_BASE_URL}/repurpose/upload-media`, {
+      method: "POST",
+      body: formData,
+    });
+    if (!res.ok) throw new Error(`Audio upload & transcription failed: ${await res.text()}`);
+    const data = await res.json();
+    return data;
+  },
+
   async ingestMedia(content: string, title?: string, media_type = "podcast"): Promise<IngestResponse> {
     const res = await fetch(`${API_BASE_URL}/repurpose/ingest`, {
       method: "POST",
@@ -170,6 +186,16 @@ export const api = {
     if (!res.ok) throw new Error(`Log performance failed: ${await res.text()}`);
     const data = await res.json();
     return data;
+  },
+
+  async getFusionProposals(): Promise<FusionProposal[]> {
+    const res = await fetch(`${API_BASE_URL}/fusion/proposals`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
+    if (!res.ok) throw new Error(`Fetch fusion proposals failed: ${await res.text()}`);
+    const data = await res.json();
+    return Array.isArray(data) ? data : data.data || [];
   },
 
   async suggestFusions(idea_id: string): Promise<FusionProposal[]> {

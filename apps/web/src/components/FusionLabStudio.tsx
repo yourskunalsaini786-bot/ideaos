@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { api, FusionProposal } from "@/lib/api";
 
 const DEMO_PROPOSALS: FusionProposal[] = [
@@ -57,14 +57,33 @@ interface FusionLabStudioProps {
 }
 
 export function FusionLabStudio({ onNavigateToRepurpose }: FusionLabStudioProps) {
-  const [proposals, setProposals] = useState<FusionProposal[]>(DEMO_PROPOSALS);
-  const [selectedProposalId, setSelectedProposalId] = useState<string>(DEMO_PROPOSALS[0].id);
+  const [proposals, setProposals] = useState<FusionProposal[]>([]);
+  const [selectedProposalId, setSelectedProposalId] = useState<string>("");
+  const [loadingProposals, setLoadingProposals] = useState(true);
   const [synthesizing, setSynthesizing] = useState(false);
   const [approvedMessage, setApprovedMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    setLoadingProposals(true);
+    api.getFusionProposals()
+      .then((backendProposals) => {
+        if (backendProposals && backendProposals.length > 0) {
+          setProposals(backendProposals);
+          setSelectedProposalId(backendProposals[0].id);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to fetch fusion proposals:", err);
+      })
+      .finally(() => {
+        setLoadingProposals(false);
+      });
+  }, []);
 
   const activeProposal = proposals.find((p) => p.id === selectedProposalId) || proposals[0];
 
   const handleApproveProposal = async () => {
+    if (!activeProposal) return;
     setSynthesizing(true);
     setApprovedMessage(null);
     try {
@@ -72,10 +91,8 @@ export function FusionLabStudio({ onNavigateToRepurpose }: FusionLabStudioProps)
       setApprovedMessage(
         "Idea Fusion approved! Master Idea created and routed to Multi-Platform Repurposing Studio."
       );
-    } catch {
-      setApprovedMessage(
-        "Idea Fusion approved! Routed to Multi-Platform Repurposing Studio."
-      );
+    } catch (err: any) {
+      alert("Fusion approval failed: " + (err.message || String(err)));
     } finally {
       setSynthesizing(false);
     }
@@ -114,123 +131,156 @@ export function FusionLabStudio({ onNavigateToRepurpose }: FusionLabStudioProps)
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
         {/* Left 5 Columns: Proposal Selector Cards */}
         <div className="lg:col-span-5 space-y-space-md">
-          {proposals.map((proposal, idx) => {
-            const isSelected = proposal.id === selectedProposalId;
-            return (
-              <div
-                key={proposal.id}
-                onClick={() => setSelectedProposalId(proposal.id)}
-                className={`rounded-xl p-space-md border transition-all cursor-pointer ${
-                  isSelected
-                    ? "bg-surface-container border-tertiary/60 shadow-[0_0_24px_-4px_rgba(139,92,246,0.25)]"
-                    : "bg-surface-container-low hover:bg-surface-container/70 border-outline-variant/30"
-                }`}
+          {loadingProposals ? (
+            <div className="py-12 text-center text-xs font-mono text-outline">
+              Loading Idea Fusion proposals...
+            </div>
+          ) : proposals.length === 0 ? (
+            <div className="p-8 text-center rounded-xl bg-surface-container/30 border border-outline-variant/30 space-y-3">
+              <div className="w-10 h-10 mx-auto rounded-full bg-tertiary-container/15 flex items-center justify-center text-tertiary">
+                <span className="material-symbols-outlined text-[20px]">hub</span>
+              </div>
+              <div className="text-xs font-semibold text-on-surface">No Fusion Proposals in Database</div>
+              <p className="text-[11px] text-outline max-w-sm mx-auto">
+                Capture at least 2 ideas to trigger cross-idea synthesis, or load sample proposals to preview.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setProposals(DEMO_PROPOSALS);
+                  setSelectedProposalId(DEMO_PROPOSALS[0].id);
+                }}
+                className="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-xs font-mono text-tertiary border border-tertiary/30 transition-all inline-flex items-center gap-1.5"
               >
-                <div className="flex items-center justify-between text-xs font-mono mb-2">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-tertiary-container/20 text-tertiary border border-tertiary/30">
-                    Fusion #{idx + 1}
-                  </span>
-                  <span className="text-emerald-400 font-bold">
-                    {Math.round(proposal.confidence * 100)}% Confidence
-                  </span>
-                </div>
+                <span className="material-symbols-outlined text-[16px]">play_circle</span>
+                <span>Load Sample Fusions [Demo Mode]</span>
+              </button>
+            </div>
+          ) : (
+            proposals.map((proposal, idx) => {
+              const isSelected = proposal.id === selectedProposalId;
+              return (
+                <div
+                  key={proposal.id}
+                  onClick={() => setSelectedProposalId(proposal.id)}
+                  className={`rounded-xl p-space-md border transition-all cursor-pointer ${
+                    isSelected
+                      ? "bg-surface-container border-tertiary/60 shadow-[0_0_24px_-4px_rgba(139,92,246,0.25)]"
+                      : "bg-surface-container-low hover:bg-surface-container/70 border-outline-variant/30"
+                  }`}
+                >
+                  <div className="flex items-center justify-between text-xs font-mono mb-2">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-tertiary-container/20 text-tertiary border border-tertiary/30">
+                      Fusion #{idx + 1}
+                    </span>
+                    <span className="text-emerald-400 font-bold">
+                      {Math.round(proposal.confidence * 100)}% Confidence
+                    </span>
+                  </div>
 
-                <h3 className="text-xs font-bold text-on-surface mb-2 leading-snug">
-                  {proposal.fusion_concept}
-                </h3>
+                  <h3 className="text-xs font-bold text-on-surface mb-2 leading-snug">
+                    {proposal.fusion_concept}
+                  </h3>
 
-                <div className="text-[10px] font-mono text-outline">
-                  Synthesized from {proposal.source_idea_ids.length} source nodes:
-                  <div className="flex items-center gap-1.5 flex-wrap mt-1">
-                    {proposal.source_idea_ids.map((src, i) => (
-                      <span key={i} className="px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary">
-                        {src}
-                      </span>
-                    ))}
+                  <div className="text-[10px] font-mono text-outline">
+                    Synthesized from {proposal.source_idea_ids.length} source nodes:
+                    <div className="flex items-center gap-1.5 flex-wrap mt-1">
+                      {proposal.source_idea_ids.map((src, i) => (
+                        <span key={i} className="px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary">
+                          {src}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
 
         {/* Right 7 Columns: Active Fusion Deep Dive & Opportunities */}
         <div className="lg:col-span-7 space-y-space-md">
-          <div className="rounded-xl bg-surface-container-low p-space-md border border-outline-variant/30 shadow-md space-y-space-md">
-            <div className="flex items-center justify-between pb-2 border-b border-outline-variant/20">
-              <div className="flex items-center gap-2">
-                <span className="material-symbols-outlined text-tertiary text-[18px]">psychology</span>
-                <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-on-surface">
-                  Synthesized Master Thesis
-                </h3>
-              </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">
-                {Math.round(activeProposal.confidence * 100)}% Match
-              </span>
-            </div>
-
-            <div className="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/20">
-              <h2 className="text-sm font-bold text-on-surface leading-snug mb-2">
-                &ldquo;{activeProposal.fusion_concept}&rdquo;
-              </h2>
-              <p className="text-xs text-on-surface-variant leading-relaxed">
-                This fusion bridges raw unedited mobile footage psychology with enterprise B2B content economics. By rejecting high-polish artificial barriers, founders compound authentic trust with high-intent decision makers.
-              </p>
-            </div>
-
-            {/* Platform Opportunities Generated */}
-            <div className="space-y-2">
-              <div className="text-[11px] font-mono text-outline uppercase tracking-wider font-semibold">
-                Multi-Platform Angles Generated ({activeProposal.content_opportunities.length})
+          {activeProposal ? (
+            <div className="rounded-xl bg-surface-container-low p-space-md border border-outline-variant/30 shadow-md space-y-space-md">
+              <div className="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-tertiary text-[18px]">psychology</span>
+                  <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-on-surface">
+                    Synthesized Master Thesis
+                  </h3>
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">
+                  {Math.round(activeProposal.confidence * 100)}% Match
+                </span>
               </div>
 
+              <div className="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/20">
+                <h2 className="text-sm font-bold text-on-surface leading-snug mb-2">
+                  &ldquo;{activeProposal.fusion_concept}&rdquo;
+                </h2>
+                <p className="text-xs text-on-surface-variant leading-relaxed">
+                  This fusion bridges raw unedited mobile footage psychology with enterprise B2B content economics. By rejecting high-polish artificial barriers, founders compound authentic trust with high-intent decision makers.
+                </p>
+              </div>
+
+              {/* Platform Opportunities Generated */}
               <div className="space-y-2">
-                {activeProposal.content_opportunities.map((opp, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3 rounded-lg bg-surface-container/60 border border-outline-variant/20 space-y-1"
-                  >
-                    <div className="flex items-center justify-between text-[11px] font-mono">
-                      <span className="px-2 py-0.5 rounded uppercase font-bold bg-surface-container-highest text-primary">
-                        {opp.platform} ({opp.format})
-                      </span>
-                      <span className="text-outline">Pillar: {opp.pillar}</span>
+                <div className="text-[11px] font-mono text-outline uppercase tracking-wider font-semibold">
+                  Multi-Platform Angles Generated ({activeProposal.content_opportunities.length})
+                </div>
+
+                <div className="space-y-2">
+                  {activeProposal.content_opportunities.map((opp, idx) => (
+                    <div
+                      key={idx}
+                      className="p-3 rounded-lg bg-surface-container/60 border border-outline-variant/20 space-y-1"
+                    >
+                      <div className="flex items-center justify-between text-[11px] font-mono">
+                        <span className="px-2 py-0.5 rounded uppercase font-bold bg-surface-container-highest text-primary">
+                          {opp.platform} ({opp.format})
+                        </span>
+                        <span className="text-outline">Pillar: {opp.pillar}</span>
+                      </div>
+                      <p className="text-xs text-on-surface leading-relaxed">
+                        {opp.angle}
+                      </p>
                     </div>
-                    <p className="text-xs text-on-surface leading-relaxed">
-                      {opp.angle}
-                    </p>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Actions */}
-            <div className="pt-2 flex items-center gap-3">
-              <button
-                onClick={handleApproveProposal}
-                disabled={synthesizing}
-                className="flex-1 py-2.5 rounded-lg bg-gradient-to-r from-secondary-container via-primary-container to-tertiary-container text-on-primary text-xs font-semibold hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_0_18px_rgba(139,92,246,0.3)] flex items-center justify-center gap-1.5 font-mono"
-              >
-                <span className="material-symbols-outlined text-[18px]">auto_fix_high</span>
-                <span>{synthesizing ? "Synthesizing..." : "Approve & Create Master Campaign"}</span>
-              </button>
+              {/* Actions */}
+              <div className="pt-2 flex items-center gap-3">
+                <button
+                  onClick={handleApproveProposal}
+                  disabled={synthesizing}
+                  className="flex-1 py-2.5 rounded-lg bg-gradient-to-r from-secondary-container via-primary-container to-tertiary-container text-on-primary text-xs font-semibold hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_0_18px_rgba(139,92,246,0.3)] flex items-center justify-center gap-1.5 font-mono"
+                >
+                  <span className="material-symbols-outlined text-[18px]">auto_fix_high</span>
+                  <span>{synthesizing ? "Synthesizing..." : "Approve & Create Master Campaign"}</span>
+                </button>
 
-              <button
-                onClick={onNavigateToRepurpose}
-                className="py-2.5 px-4 rounded-lg bg-surface-container-high hover:bg-surface-bright text-xs font-mono text-on-surface font-medium border border-outline-variant/30 transition-all flex items-center gap-1.5"
-              >
-                <span>Repurposing Studio</span>
-                <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-              </button>
-            </div>
-
-            {approvedMessage && (
-              <div className="p-2.5 rounded-lg bg-surface-container border border-tertiary/40 text-xs font-mono text-tertiary flex items-center gap-1.5 animate-fadeIn">
-                <span className="material-symbols-outlined text-[16px]">check_circle</span>
-                <span>{approvedMessage}</span>
+                <button
+                  onClick={onNavigateToRepurpose}
+                  className="py-2.5 px-4 rounded-lg bg-surface-container-high hover:bg-surface-bright text-xs font-mono text-on-surface font-medium border border-outline-variant/30 transition-all flex items-center gap-1.5"
+                >
+                  <span>Repurposing Studio</span>
+                  <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </button>
               </div>
-            )}
-          </div>
+
+              {approvedMessage && (
+                <div className="p-2.5 rounded-lg bg-surface-container border border-tertiary/40 text-xs font-mono text-tertiary flex items-center gap-1.5 animate-fadeIn">
+                  <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                  <span>{approvedMessage}</span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="p-12 text-center text-xs font-mono text-outline rounded-xl bg-surface-container-low border border-outline-variant/30">
+              Select or generate a fusion proposal to view synthesized angles.
+            </div>
+          )}
         </div>
       </div>
     </div>

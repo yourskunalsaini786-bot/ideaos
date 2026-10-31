@@ -2,7 +2,7 @@
 import uuid
 from datetime import datetime, timezone
 from typing import List, Optional
-from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status, UploadFile, File, Form
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
@@ -48,8 +48,13 @@ async def get_or_create_default_workspace(db: AsyncSession, request: Request) ->
         except Exception:
             pass
 
+    from ideaos.core.config import get_settings
+    settings = get_settings()
+    if settings.ENVIRONMENT != "development":
+        raise HTTPException(status_code=401, detail="Workspace context required")
+
     # Find first existing workspace or create default demo workspace
-    result = await db.execute(select(Workspace).limit(1))
+    result = await db.execute(select(Workspace).order_by(Workspace.created_at.asc()).limit(1))
     ws = result.scalar_one_or_none()
     if ws:
         return ws
@@ -93,6 +98,95 @@ async def get_or_create_default_workspace(db: AsyncSession, request: Request) ->
     await db.commit()
     await db.refresh(ws)
     return ws
+
+
+@router.post("/upload-media", response_model=MediaIngestResponse, status_code=status.HTTP_201_CREATED)
+async def upload_and_ingest_media(
+    request: Request,
+    file: UploadFile = File(...),
+    title: Optional[str] = Form(None),
+    content_pillar: Optional[str] = Form("Repurposing"),
+    media_type: Optional[str] = Form("podcast"),
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Ingest live audio/video files (MP3, WAV, M4A, MP4) directly.
+    Transcribes audio using Gemini Multimodal Audio API, segments timestamps,
+    and extracts explainable clip opportunities.
+    """
+    ws = await get_or_create_default_workspace(db, request)
+
+    # Read audio bytes
+    audio_bytes = await file.read()
+    if not audio_bytes:
+        raise HTTPException(status_code=400, detail="Uploaded file is empty.")
+
+    mime_type = file.content_type or "audio/mp3"
+    filename = file.filename or "media_upload.mp3"
+
+    # Transcribe via Gemini multimodal audio
+    transcript_data = await ai_service.transcribe_audio_bytes(
+        audio_bytes=audio_bytes,
+        mime_type=mime_type,
+        filename=filename,
+    )
+
+    # Extract clips with rationales
+    clips = await ai_service.extract_clip_opportunities(transcript_data)
+
+    # Save to Capture table
+    user_id = ws.owner_id
+    capture = Capture(
+        workspace_id=ws.id,
+        user_id=user_id,
+        type=media_type or "podcast",
+        status="completed",
+        source_text=f"Uploaded file: {filename} ({len(audio_bytes)} bytes)",
+        metadata={
+            "filename": filename,
+            "mime_type": mime_type,
+            "size_bytes": len(audio_bytes),
+            "transcript_data": transcript_data,
+            "clips": clips,
+            "duration_seconds": transcript_data.get("duration_seconds", 300),
+        },
+    )
+    db.add(capture)
+    await db.flush()
+
+    # Create Idea record
+    resolved_title = title or transcript_data.get("title", f"Highlights: {filename}")
+    idea = Idea(
+        workspace_id=ws.id,
+        capture_id=capture.id,
+        title=resolved_title,
+        summary=transcript_data.get("summary", ""),
+        original_thought=f"Direct audio upload from {filename}",
+        main_topic=transcript_data.get("main_topic", "Audio Repurposing"),
+        content_pillar=content_pillar,
+        suggested_formats=["reel", "post", "shorts", "thread"],
+        suggested_platforms=["instagram", "linkedin", "youtube", "x"],
+        keywords_entities=transcript_data.get("key_takeaways", []),
+        status="approved",
+    )
+    db.add(idea)
+    await db.flush()
+
+    capture.idea_id = idea.id
+    await db.commit()
+    await db.refresh(capture)
+    await db.refresh(idea)
+
+    return MediaIngestResponse(
+        capture_id=capture.id,
+        idea_id=idea.id,
+        title=idea.title,
+        summary=idea.summary,
+        main_topic=idea.main_topic,
+        duration_seconds=float(transcript_data.get("duration_seconds", 300)),
+        segments=transcript_data.get("segments", []),
+        clip_opportunities=clips,
+    )
 
 
 @router.post("/ingest", response_model=MediaIngestResponse, status_code=status.HTTP_201_CREATED)

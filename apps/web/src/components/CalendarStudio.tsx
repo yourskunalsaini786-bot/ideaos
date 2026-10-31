@@ -43,8 +43,9 @@ const DEMO_ITEMS: CalendarItem[] = [
 ];
 
 export function CalendarStudio() {
-  const [items, setItems] = useState<CalendarItem[]>(DEMO_ITEMS);
-  const [selectedItem, setSelectedItem] = useState<CalendarItem>(DEMO_ITEMS[2]);
+  const [items, setItems] = useState<CalendarItem[]>([]);
+  const [selectedItem, setSelectedItem] = useState<CalendarItem | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Performance simulation inputs
   const [views, setViews] = useState(42300);
@@ -55,20 +56,33 @@ export function CalendarStudio() {
   const [feedbackResult, setFeedbackResult] = useState<string | null>(null);
 
   useEffect(() => {
-    api.getCalendarItems().then((backendItems) => {
-      if (backendItems && backendItems.length > 0) {
-        setItems(backendItems);
-      }
-    });
+    setIsLoading(true);
+    api.getCalendarItems()
+      .then((backendItems) => {
+        if (backendItems && backendItems.length > 0) {
+          setItems(backendItems);
+          setSelectedItem(backendItems[0]);
+        }
+      })
+      .catch((err) => {
+        console.error("Failed to fetch calendar items:", err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   const handleLogPerformance = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedItem) {
+      alert("Please select a post from the calendar first.");
+      return;
+    }
     setLogging(true);
     setFeedbackResult(null);
     try {
-      const res = await api.logPerformance({
-        content_output_id: selectedItem.id || "demo-content-1",
+      await api.logPerformance({
+        content_output_id: selectedItem.id,
         views,
         likes,
         shares,
@@ -81,10 +95,8 @@ export function CalendarStudio() {
       setFeedbackResult(
         `Performance recorded! Engagement Rate: ${engagementRate}%. Model updated: High comment-to-view ratio (+14%) has increased viral weighting for 'Contrarian Reversal' hooks across future clip recommendations.`
       );
-    } catch {
-      setFeedbackResult(
-        "Performance logged locally. Learning loop updated viral hook threshold."
-      );
+    } catch (err: any) {
+      alert("Failed to submit performance metrics: " + (err.message || String(err)));
     } finally {
       setLogging(false);
     }
@@ -136,68 +148,95 @@ export function CalendarStudio() {
               </span>
             </div>
 
-            <div className="space-y-2.5">
-              {items.map((item, idx) => {
-                const isSelected = selectedItem?.id === item.id;
-                const isPublished = item.status === "published";
-                return (
-                  <div
-                    key={item.id || idx}
-                    onClick={() => {
-                      setSelectedItem(item);
-                      if (item.metadata?.views) {
-                        setViews(item.metadata.views);
-                        setLikes(item.metadata.likes || 1200);
-                        setShares(item.metadata.shares || 200);
-                        setComments(item.metadata.comments || 150);
-                      }
-                    }}
-                    className={`p-3 rounded-lg border transition-all cursor-pointer ${
-                      isSelected
-                        ? "bg-surface-container border-secondary/50 shadow-[0_0_16px_rgba(6,182,212,0.15)]"
-                        : "bg-surface-container/50 hover:bg-surface-container/80 border-outline-variant/20"
-                    }`}
-                  >
-                    <div className="flex items-center justify-between text-[11px] font-mono mb-1.5">
-                      <div className="flex items-center gap-2">
-                        <span className="px-1.5 py-0.5 rounded text-[10px] uppercase font-bold bg-surface-container-highest text-primary">
-                          {item.platform}
-                        </span>
-                        <span className="text-outline">
-                          {new Date(item.scheduled_at).toLocaleDateString()} at{" "}
-                          {new Date(item.scheduled_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+            {isLoading ? (
+              <div className="py-12 text-center text-xs font-mono text-outline">
+                Loading calendar pipeline...
+              </div>
+            ) : items.length === 0 ? (
+              <div className="p-8 text-center rounded-xl bg-surface-container/30 border border-outline-variant/30 space-y-3">
+                <div className="w-10 h-10 mx-auto rounded-full bg-secondary-container/15 flex items-center justify-center text-secondary">
+                  <span className="material-symbols-outlined text-[20px]">calendar_today</span>
+                </div>
+                <div className="text-xs font-semibold text-on-surface">No Scheduled Posts in Database</div>
+                <p className="text-[11px] text-outline max-w-sm mx-auto">
+                  Approve and schedule clips in the Repurposing Studio to populate this calendar, or load sample posts to test the feedback loop.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setItems(DEMO_ITEMS);
+                    setSelectedItem(DEMO_ITEMS[2]);
+                  }}
+                  className="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-xs font-mono text-secondary border border-secondary/30 transition-all inline-flex items-center gap-1.5"
+                >
+                  <span className="material-symbols-outlined text-[16px]">play_circle</span>
+                  <span>Load Sample Posts [Demo Mode]</span>
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-2.5">
+                {items.map((item, idx) => {
+                  const isSelected = selectedItem?.id === item.id;
+                  const isPublished = item.status === "published";
+                  return (
+                    <div
+                      key={item.id || idx}
+                      onClick={() => {
+                        setSelectedItem(item);
+                        if (item.metadata?.views) {
+                          setViews(item.metadata.views);
+                          setLikes(item.metadata.likes || 1200);
+                          setShares(item.metadata.shares || 200);
+                          setComments(item.metadata.comments || 150);
+                        }
+                      }}
+                      className={`p-3 rounded-lg border transition-all cursor-pointer ${
+                        isSelected
+                          ? "bg-surface-container border-secondary/50 shadow-[0_0_16px_rgba(6,182,212,0.15)]"
+                          : "bg-surface-container/50 hover:bg-surface-container/80 border-outline-variant/20"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between text-[11px] font-mono mb-1.5">
+                        <div className="flex items-center gap-2">
+                          <span className="px-1.5 py-0.5 rounded text-[10px] uppercase font-bold bg-surface-container-highest text-primary">
+                            {item.platform}
+                          </span>
+                          <span className="text-outline">
+                            {new Date(item.scheduled_at).toLocaleDateString()} at{" "}
+                            {new Date(item.scheduled_at).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                          </span>
+                        </div>
+
+                        <span
+                          className={`px-2 py-0.5 rounded text-[10px] font-mono font-semibold ${
+                            isPublished
+                              ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20"
+                              : "bg-primary-container/20 text-primary border border-primary/30"
+                          }`}
+                        >
+                          {item.status.toUpperCase()}
                         </span>
                       </div>
 
-                      <span
-                        className={`px-2 py-0.5 rounded text-[10px] font-mono font-semibold ${
-                          isPublished
-                            ? "bg-emerald-500/15 text-emerald-400 border border-emerald-500/20"
-                            : "bg-primary-container/20 text-primary border border-primary/30"
-                        }`}
-                      >
-                        {item.status.toUpperCase()}
-                      </span>
+                      <h4 className="text-xs font-bold text-on-surface mb-1">
+                        {item.metadata?.title || "Repurposed Platform Post"}
+                      </h4>
+
+                      <p className="text-xs text-on-surface-variant line-clamp-2">
+                        {item.metadata?.hook || "Multi-platform content ready for publication."}
+                      </p>
+
+                      {item.metadata?.viral_prediction && (
+                        <div className="mt-2 text-[10px] font-mono text-secondary flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[12px]">analytics</span>
+                          Predicted Resonance: {item.metadata.viral_prediction}%
+                        </div>
+                      )}
                     </div>
-
-                    <h4 className="text-xs font-bold text-on-surface mb-1">
-                      {item.metadata?.title || "Repurposed Platform Post"}
-                    </h4>
-
-                    <p className="text-xs text-on-surface-variant line-clamp-2">
-                      {item.metadata?.hook || "Multi-platform content ready for publication."}
-                    </p>
-
-                    {item.metadata?.viral_prediction && (
-                      <div className="mt-2 text-[10px] font-mono text-secondary flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[12px]">analytics</span>
-                        Predicted Resonance: {item.metadata.viral_prediction}%
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
 

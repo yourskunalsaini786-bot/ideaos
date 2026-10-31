@@ -30,7 +30,7 @@ async def get_current_workspace_id(request: Request, db: AsyncSession = Depends(
     if workspace_id:
         return UUID(str(workspace_id))
     if settings.ENVIRONMENT == "development":
-        result = await db.execute(select(Workspace.id).limit(1))
+        result = await db.execute(select(Workspace.id).order_by(Workspace.created_at.asc()).limit(1))
         ws_id = result.scalar_one_or_none()
         if ws_id:
             return ws_id
@@ -43,7 +43,7 @@ async def get_current_user_id(request: Request, db: AsyncSession = Depends(get_d
     if user_id:
         return UUID(str(user_id))
     if settings.ENVIRONMENT == "development":
-        result = await db.execute(select(Workspace.owner_id).limit(1))
+        result = await db.execute(select(Workspace.owner_id).order_by(Workspace.created_at.asc()).limit(1))
         u_id = result.scalar_one_or_none()
         if u_id:
             return u_id
