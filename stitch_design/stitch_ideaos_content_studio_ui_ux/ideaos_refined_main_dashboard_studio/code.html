@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary":"#3c0091","on-primary-fixed":"#001a42","tertiary-fixed-dim":"#d0bcff","on-tertiary-fixed-variant":"#5516be","on-background":"#dfe2ee","secondary-fixed-dim":"#4cd7f6","surface-container-lowest":"#0a0e16","background":"#0f131c","on-secondary-container":"#00424e","outline":"#8c909f","secondary":"#4cd7f6","surface-tint":"#adc6ff","primary":"#adc6ff","tertiary-fixed":"#e9ddff","on-secondary-fixed-variant":"#004e5c","on-surface-variant":"#c2c6d6","secondary-fixed":"#acedff","error-container":"#93000a","on-surface":"#dfe2ee","on-primary":"#002e6a","primary-fixed-dim":"#adc6ff","tertiary":"#d0bcff","surface-container":"#1c2028","surface-container-high":"#262a33","on-secondary":"#003640","on-tertiary-container":"#340080","on-tertiary-fixed":"#23005c","surface-container-highest":"#31353e","on-secondary-fixed":"#001f26","on-error-container":"#ffdad6","on-primary-container":"#00285d","inverse-on-surface":"#2c3039","primary-container":"#4d8eff","outline-variant":"#424754","surface-variant":"#31353e","surface-dim":"#0f131c","surface-container-low":"#181c24","inverse-surface":"#dfe2ee","tertiary-container":"#a078ff","error":"#ffb4ab","surface-bright":"#353942","on-primary-fixed-variant":"#004395","secondary-container":"#03b5d3","primary-fixed":"#d8e2ff","surface":"#0f131c","on-error":"#690005","inverse-primary":"#005ac2"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-md":"1rem","space-xl":"2.5rem","space-xs":"0.25rem","margin-desktop":"2rem","margin":"1rem","space-sm":"0.5rem","gutter":"1rem","gutter-desktop":"1.5rem","space-lg":"1.5rem"},"fontFamily":{"headline-lg-mobile":["Geist"],"headline-md":["Geist"],"body-md":["Geist"],"label-md":["JetBrains Mono"],"headline-lg":["Geist"],"label-sm":["JetBrains Mono"],"body-lg":["Geist"],"label-lg":["JetBrains Mono"],"display-xl":["Geist"],"headline-sm":["Geist"],"display-xl-mobile":["Geist"],"body-sm":["Geist"]},"fontSize":{"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.03em","fontWeight":"500"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"display-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}],"display-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 flex items-center gap-space-sm px-space-lg bg-surface-container-low shrink-0"><img alt="IdeaOS Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UzGgjW7_Cf8VLC37Z795SFDVYSjitp3R9LGNamgaW1soCH9C8cTjXXQ_vYDgoNs2Q31wTT5QzFb7hIa2QDjvFkIAEKMJhwwPWHUibJD4QeiYBqVngrx1NWK0Vnq0NKfymx3gzlZel9RzQerVa34jPNhXP0zHIPJTX2ZCljOLs47mdZi68gOk12vrRavUEADM23Rl07zEja8P5VEa4iN1gxdGXvn4V_D5xqCLEG_JVD7w"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">IdeaOS</span></div><div class="px-space-md py-space-xs shrink-0"><button class="w-full flex items-center justify-between px-space-md py-space-sm rounded-xl bg-gradient-to-r from-secondary-container via-primary-container to-tertiary-container text-on-primary font-label-lg text-label-lg hover:opacity-95 active:scale-[0.98] transition-all shadow-[0_0_24px_-4px_rgba(59,130,246,0.25)]" type="button"><span class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px]">add_circle</span>Quick Capture</span><kbd class="font-label-sm text-label-sm bg-surface-container-lowest/40 px-1.5 py-0.5 rounded text-on-primary">⌘N</kbd></button></div><div class="flex-1 overflow-y-auto px-space-md py-space-sm space-y-space-md"><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Home</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a aria-current="page" class="group flex items-center justify-between px-space-sm py-1.5 transition-colors bg-primary-container text-on-primary-container font-medium rounded-lg" data-path="overview" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span>Overview</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="quick-capture" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">bolt</span>Quick Capture</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="notifications" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">notifications</span>Notifications</span><span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary">3</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Creative Intelligence</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="idea-inbox" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">inbox</span>Idea Inbox</span><span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-surface-container-highest text-on-surface-variant">14</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="idea-fusion" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span>Idea Fusion</span><span class="px-1.5 py-0.2 rounded-full font-label-sm text-label-sm bg-tertiary-container/20 text-tertiary font-label-sm">3 new</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="idea-graph" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">schema</span>Idea Graph</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="idea-library" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">local_library</span>Idea Library</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Media Studio</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="video-and-podcast-studio" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">mic</span>Video &amp; Podcast Studio</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="clip-selection-studio" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">movie_edit</span>Clip Selection Studio</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="content-repurposing" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">transform</span>Content Repurposing</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="content-drafts" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">edit_note</span>Content Drafts</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Brand Intelligence</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="brand-dna-and-memory" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">psychology</span>Brand DNA &amp; Memory</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="voice-and-style-rules" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">tune</span>Voice &amp; Style Rules</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Publishing</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="content-calendar" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">calendar_today</span>Content Calendar</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="publishing-pipeline" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">send</span>Publishing Pipeline</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Analytics</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="performance-intelligence" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">insights</span>Performance Intelligence</span></a><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="content-insights" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">analytics</span>Content Insights</span></a></nav></div><div class="space-y-space-xs"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">Settings</div><nav class="space-y-0.5" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg"><a class="group flex items-center justify-between px-space-sm py-1.5 rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="workspace-and-integrations" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">settings</span>Workspace &amp; Integrations</span></a></nav></div></div><div class="p-space-md shrink-0 bg-surface-container-lowest/60"><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfCzbGv-w-wN_cSeKBILGD5c_VxJQUAUamaFHV1-kAOtOUCwyopul4TWew5kGkEgPibZCJisGjOOFx1fghRm_DBzizJWNU3j5WBc0wq8ckZoAXNzywU5CINqPdDFVsRXYeqFoO3tWcCH-BnleLB670Y-D2wqZ70UtDOT9PxIzLl1vXYkGZ3wpAZnVOnqVhasR6cVoqTBU98foI_lU4Sy_7Sx9BgWjrVkvBZwp_ai4t"/><div class="min-w-0 flex-1"><div class="font-label-md text-label-md text-on-surface truncate">Editorial Director</div><div class="font-label-sm text-label-sm text-outline truncate">studio@ideaos.ai</div></div><span class="material-symbols-outlined text-[18px] text-outline hover:text-on-surface transition-colors cursor-pointer">more_vert</span></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter-desktop"><div class="flex items-center gap-space-md min-w-0"><div class="flex items-center gap-space-xs font-label-md text-label-md text-outline"><span class="text-on-surface-variant">IdeaOS Studio</span><span class="text-outline-variant">/</span><span class="text-primary font-medium">Command Console</span></div><div class="relative hidden lg:block w-72"><span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-full h-8 pl-8 pr-14 bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm rounded-lg focus:outline-none focus:bg-surface-container transition-all" placeholder="Search ideas, clips, models..." type="text"/><kbd class="absolute right-2 top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-outline bg-surface-container px-1.5 py-0.5 rounded">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container text-secondary text-label-sm font-label-sm shadow-[0_0_24px_-4px_rgba(6,182,212,0.22)]"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>Brand Memory Sync: 99.4%</span></div><button class="flex items-center gap-space-xs px-space-md py-1.5 rounded-lg bg-gradient-to-r from-secondary-container via-primary-container to-secondary text-on-primary font-label-md text-label-md shadow-[0_0_24px_-4px_rgba(59,130,246,0.25)] hover:opacity-90 active:scale-[0.98] transition-all" type="button"><span class="material-symbols-outlined text-[16px]">add</span><span>+ Quick Capture</span></button><div class="flex items-center gap-space-sm pl-space-xs"><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover shrink-0 ring-1 ring-outline/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfCzbGv-w-wN_cSeKBILGD5c_VxJQUAUamaFHV1-kAOtOUCwyopul4TWew5kGkEgPibZCJisGjOOFx1fghRm_DBzizJWNU3j5WBc0wq8ckZoAXNzywU5CINqPdDFVsRXYeqFoO3tWcCH-BnleLB670Y-D2wqZ70UtDOT9PxIzLl1vXYkGZ3wpAZnVOnqVhasR6cVoqTBU98foI_lU4Sy_7Sx9BgWjrVkvBZwp_ai4t"/></div></div></header><main class="relative pt-16 bg-surface min-h-screen w-full px-gutter-desktop py-space-md"><div class="flex flex-col w-full space-y-space-lg pb-space-xl">
+<!-- Top Intelligence Summary & Metric Ribbons -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-xl"><div class="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-secondary-container/10 blur-3xl pointer-events-none"></div>
+<div class="absolute right-1/3 -bottom-24 h-48 w-48 rounded-full bg-tertiary-container/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="space-y-space-xs max-w-2xl">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-widest">
+<span class="h-2 w-2 rounded-full bg-secondary animate-ping"></span>
+<span>Cognitive Synthesis Engine • Active</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg tracking-tight text-on-surface font-bold">
+Your ideas are becoming content.
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+IdeaOS discovered <span class="text-secondary font-medium">4 high-resonance content opportunities</span> across your recent voice notes, whiteboard screenshots, and podcast episodes.
+</p>
+</div>
+<div class="grid grid-cols-3 gap-space-sm bg-surface-container-lowest/80 p-space-sm rounded-xl backdrop-blur-md shrink-0 border border-outline-variant/30">
+<div class="px-space-sm py-space-xs text-center sm:text-left">
+<div class="font-label-sm text-label-sm text-outline">Captured Ideas</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-baseline gap-1">
+142 <span class="font-label-sm text-label-sm text-secondary">+12%</span>
+</div>
+</div>
+<div class="px-space-sm py-space-xs text-center sm:text-left border-l border-outline-variant/30">
+<div class="font-label-sm text-label-sm text-outline">Fusions Ready</div>
+<div class="font-headline-sm text-headline-sm text-tertiary font-semibold flex items-baseline gap-1">
+3 <span class="font-label-sm text-label-sm text-tertiary-fixed-dim">New</span>
+</div>
+</div>
+<div class="px-space-sm py-space-xs text-center sm:text-left border-l border-outline-variant/30">
+<div class="font-label-sm text-label-sm text-outline">Repurposed Drafts</div>
+<div class="font-headline-sm text-headline-sm text-secondary-fixed font-semibold flex items-baseline gap-1">
+2 <span class="font-label-sm text-label-sm text-secondary">Queue</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-md bg-surface-container/60 rounded-xl p-space-md border border-outline-variant/30">
+<div class="flex flex-col md:flex-row items-stretch md:items-center gap-space-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">psychology</span>
+<input class="w-full h-11 pl-10 pr-24 bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-md rounded-lg focus:outline-none focus:ring-1 focus:ring-secondary transition-all" id="quick-scratchpad" placeholder="Dump a fleeting thought, raw voice memo fragment, or research URL..." type="text"/>
+<div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1">
+<span class="font-label-sm text-label-sm text-outline px-1.5 py-0.5 rounded bg-surface-container">Esc to clear</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex-1 md:flex-initial flex items-center justify-center gap-space-xs px-space-md h-11 rounded-lg bg-gradient-to-r from-secondary-container via-primary-container to-tertiary-container text-on-primary font-label-lg text-label-lg shadow-[0_0_24px_-4px_rgba(59,130,246,0.35)] hover:opacity-90 active:scale-[0.98] transition-all font-semibold" onclick="triggerCaptureNotice()" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Quick Capture</span>
+<kbd class="hidden sm:inline-block font-label-sm text-label-sm bg-surface-container-lowest/30 px-1 py-0.5 rounded text-on-primary ml-1">⌘N</kbd>
+</button>
+<button class="flex items-center justify-center gap-space-xs px-space-md h-11 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface transition-colors font-label-md text-label-md border border-outline-variant/30 font-medium" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">upload_file</span>
+<span>Upload Video or Audio</span>
+</button>
+</div>
+</div>
+<div class="hidden mt-2 font-label-sm text-label-sm text-secondary flex items-center gap-1" id="capture-alert">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> Idea buffered into Unreviewed Inbox (#143).
+</div>
+</div></section>
+<!-- Active AI Pipeline Overview: 4 Architectural Glass Nodes -->
+<section class="relative rounded-xl bg-surface-container-low p-space-lg shadow-lg border border-outline-variant/30 overflow-hidden">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div class="space-y-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">hub</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Signature Creative Intelligence</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-outline">Real-time Knowledge Mesh</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Idea Graph: Active Cognitive Clusters</h2>
+</div>
+<div class="flex items-center gap-space-xs flex-wrap font-label-sm text-label-sm">
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-[#4cd7f6]"><span class="w-2 h-2 rounded-full bg-[#4cd7f6]"></span> Voice Memos (18)</span>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-[#f59e0b]"><span class="w-2 h-2 rounded-full bg-[#f59e0b]"></span> Whiteboards (12)</span>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-tertiary"><span class="w-2 h-2 rounded-full bg-tertiary"></span> AI Fusions (3)</span>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-primary"><span class="w-2 h-2 rounded-full bg-primary"></span> Master Concepts (5)</span>
+<span class="flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-[#06b6d4]"><span class="w-2 h-2 rounded-full bg-[#06b6d4]"></span> Repurposed Clips (8)</span>
+<a class="text-secondary hover:underline ml-2 flex items-center gap-0.5" href="#">Full Graph Studio →</a>
+</div>
+</div>
+<div class="relative w-full h-48 bg-surface-container-lowest/80 rounded-xl border border-outline-variant/20 overflow-hidden flex items-center justify-center">
+<svg class="w-full h-full" fill="none" viewbox="0 0 900 180">
+<line stroke="rgba(76,215,246,0.3)" stroke-dasharray="3 3" stroke-width="1.5" x1="160" x2="320" y1="85" y2="65"></line>
+<line stroke="rgba(245,158,11,0.3)" stroke-dasharray="3 3" stroke-width="1.5" x1="220" x2="320" y1="130" y2="65"></line>
+<line stroke="rgba(160,120,255,0.6)" stroke-width="2" x1="320" x2="470" y1="65" y2="90"></line>
+<line stroke="rgba(173,198,255,0.5)" stroke-width="1.5" x1="470" x2="620" y1="90" y2="60"></line>
+<line stroke="rgba(6,182,212,0.5)" stroke-dasharray="2 2" stroke-width="1.5" x1="470" x2="650" y1="90" y2="130"></line>
+<line stroke="rgba(76,215,246,0.3)" stroke-width="1" x1="620" x2="780" y1="60" y2="80"></line>
+<g transform="translate(160, 85)">
+<circle fill="rgba(76,215,246,0.15)" r="18" stroke="#4cd7f6" stroke-width="1.5"></circle>
+<circle fill="#4cd7f6" r="5"></circle>
+<text fill="#dfe2ee" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="0" y="28">Audio Note #104</text>
+</g>
+<g transform="translate(220, 130)">
+<circle fill="rgba(245,158,11,0.15)" r="16" stroke="#f59e0b" stroke-width="1.5"></circle>
+<circle fill="#f59e0b" r="4"></circle>
+<text fill="#c2c6d6" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="0" y="26">Whiteboard Snips</text>
+</g>
+<g transform="translate(320, 65)">
+<circle fill="rgba(173,198,255,0.2)" r="22" stroke="#adc6ff" stroke-width="1.5"></circle>
+<circle fill="#adc6ff" r="6"></circle>
+<text fill="#dfe2ee" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="0" y="32">Ep #47 Podcast Stem</text>
+</g>
+<g transform="translate(470, 90)">
+<circle fill="rgba(160,120,255,0.25)" r="28" stroke="#a078ff" stroke-width="2"></circle>
+<circle class="animate-pulse" fill="#d0bcff" r="8"></circle>
+<text fill="#d0bcff" font-family="Geist" font-size="11" font-weight="bold" text-anchor="middle" x="0" y="40">Fusion: Lo-Fi/Hi-Fi (94.2%)</text>
+</g>
+<g transform="translate(620, 60)">
+<circle fill="rgba(173,198,255,0.18)" r="20" stroke="#adc6ff" stroke-width="1.5"></circle>
+<circle fill="#adc6ff" r="5"></circle>
+<text fill="#c2c6d6" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="0" y="30">Master Narrative Arc</text>
+</g>
+<g transform="translate(650, 130)">
+<circle fill="rgba(6,182,212,0.18)" r="16" stroke="#06b6d4" stroke-width="1.5"></circle>
+<circle fill="#06b6d4" r="4"></circle>
+<text fill="#c2c6d6" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="0" y="26">TikTok Clip Cut #1</text>
+</g>
+<g transform="translate(780, 80)">
+<circle fill="rgba(76,215,246,0.15)" r="18" stroke="#4cd7f6" stroke-width="1.5"></circle>
+<circle fill="#4cd7f6" r="5"></circle>
+<text fill="#dfe2ee" font-family="JetBrains Mono" font-size="10" text-anchor="middle" x="0" y="28">Repurposed Dispatch</text>
+</g>
+</svg>
+<div class="absolute bottom-2 left-3 font-label-sm text-[10px] text-outline flex items-center gap-1 bg-surface-container-low/80 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px] text-secondary">touch_app</span> Interactive cluster graph. Click any node to drill into raw provenance stems.
+</div>
+</div>
+</section>
+<!-- Workstation Split Grid (65% Studio Feed / 35% Inspector & Brand Telemetry) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN (Approx 65% - 8 cols on desktop) -->
+<div class="lg:col-span-8 space-y-space-lg">
+<!-- AI-Generated Fusion Spotlight Card -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-xl border border-tertiary-container/40 ring-1 ring-tertiary-container/30">
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-tertiary-container/20 blur-3xl pointer-events-none rounded-full"></div>
+<div class="absolute -bottom-16 -left-16 w-56 h-56 bg-secondary-container/15 blur-3xl pointer-events-none rounded-full"></div>
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center shadow-[0_0_20px_-4px_rgba(160,120,255,0.5)]">
+<span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">Signature Idea Fusion Spotlight</span>
+<span class="px-2 py-0.2 rounded-full font-label-sm text-[10px] bg-tertiary-container/30 text-tertiary">Match Confidence 94.2%</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Autonomous Cross-Domain Synthesis</h2>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-tertiary-container/20 text-tertiary border border-tertiary/30">
+Top Recommendation
+</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md my-space-md">
+<div class="p-space-md rounded-xl bg-surface-container space-y-space-xs border border-secondary/20 relative">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">mic</span> Source A (Voice Memo)
+</span>
+<span class="font-label-sm text-[10px] text-outline">Recorded yesterday</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface font-medium leading-snug">
+"Why B2B SaaS audiences hate overt promotional links..."
+</div>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+Autonomous notes detailing consumer resistance to transactional CTA formatting in top-of-funnel founder video essays.
+</p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container space-y-space-xs border border-primary/20 relative">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">podcasts</span> Source B (Podcast Stem Ep #47)
+</span>
+<span class="font-label-sm text-[10px] text-outline">Audio Stem 44m</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface font-medium leading-snug">
+"High-production camera setups yield 3x less retention if the emotional hook lacks handheld spontaneity..."
+</div>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+Empirical creator interview excerpt analyzing audience dropoff with studio gloss vs authentic conversational pacing.
+</p>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-lowest/80 border border-tertiary-container/30 my-space-md relative">
+<div class="flex items-center gap-space-xs mb-1.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">schema</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold uppercase tracking-wider">AI Semantic Bridge</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<span class="text-tertiary font-medium">Contradictory Reconciliation:</span> Both sources pinpoint why overt polish degrades trust in creator-led growth. Synthesizing these unlocks a non-intuitive playbook on marrying enterprise-grade strategic analysis with intimate, unscripted production aesthetics.
+</p>
+</div>
+<div class="p-space-md rounded-xl bg-gradient-to-r from-surface-container to-surface-container-high border border-outline-variant/30 space-y-space-sm">
+<div>
+<div class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Master Content Opportunity</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+"The Lo-Fi Hook, Hi-Fi Substance Playbook: Why Top Creators Shoot Handheld but Deliver Enterprise Insights"
+</h3>
+</div>
+<div class="pt-space-xs flex flex-wrap items-center justify-between gap-space-sm border-t border-outline-variant/20">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-lowest text-secondary border border-secondary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">article</span> LinkedIn Long-Form
+</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-lowest text-primary border border-primary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">videocam</span> 60s Vertical Reel
+</span>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-lowest text-tertiary border border-tertiary/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">mail</span> Weekly Newsletter
+</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-colors" type="button">
+Save Fusion
+</button>
+<button class="px-space-md py-1.5 rounded-lg bg-gradient-to-r from-tertiary-container to-primary-container text-on-tertiary font-label-md text-label-md hover:opacity-90 active:scale-95 transition-all shadow-[0_0_20px_-4px_rgba(160,120,255,0.5)] font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+<span>Review &amp; Generate Drafts</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Ready-to-Review Media Clips from Episode #47 -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-lg space-y-space-md border border-outline-variant/30">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-semibold">Clip Selection Studio</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-outline">Episode #47: Creator Economy 3.0</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Ready-to-Extract High Retention Hooks</h2>
+</div>
+<button class="flex items-center gap-space-xs text-secondary font-label-md text-label-md hover:underline self-start sm:self-auto" type="button">
+<span>Open in Multi-Track Studio</span>
+<span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest/80 p-space-sm rounded-xl border border-outline-variant/20 space-y-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">timeline</span> Episode Timeline (48m 20s)</span>
+<span class="text-secondary font-medium">2 High-Score Hooks Detected</span>
+</div>
+<div class="relative w-full h-8 bg-surface-container rounded-lg overflow-hidden flex items-center px-2">
+<div class="w-full h-2 bg-surface-container-highest rounded-full relative">
+<div class="absolute left-[4%] w-[6%] h-full bg-secondary rounded-full shadow-[0_0_8px_rgba(76,215,246,0.6)]"></div>
+<div class="absolute left-[30%] w-[5%] h-full bg-tertiary rounded-full shadow-[0_0_8px_rgba(208,188,255,0.6)]"></div>
+</div>
+<div class="absolute left-[4%] -top-0.5 bg-secondary text-surface font-label-sm text-[9px] font-bold px-1 rounded">
+01:14 Hook A
+</div>
+<div class="absolute left-[30%] -top-0.5 bg-tertiary text-surface font-label-sm text-[9px] font-bold px-1 rounded">
+14:40 Hook B
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="rounded-xl bg-surface-container p-space-sm flex flex-col justify-between space-y-space-sm group hover:bg-surface-container-high transition-colors border border-outline-variant/20">
+<div class="space-y-space-xs">
+<div class="relative rounded-lg overflow-hidden aspect-video bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Cinematic frame of podcast host with Shure microphone in dark moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6sF0fOG6Qu5ZFNfvm8e8WF3unFZsRwcjTb9rI4fqMy-FTuM2P1uRglBT9dqYhKHcWHHtcDsGt-9fCcuavPj581VtUE032uc5pJEeUrNeln-BCy8NBMJdNEtOFfyBIr1r2EpzDREFiS7ihtSInlkejNc0V0slqDabFM8SFPxdg4gmkW5dYwG3FE8s4Zx1Hd9nC_-cFDyE2wcyRF-V7CA6eBccTOS_UrTupPP0Kv_kF"/>
+<div class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-secondary font-label-sm text-label-sm backdrop-blur">
+01:14 - 02:08 (54s)
+</div>
+<div class="absolute bottom-1.5 right-1.5 px-2 py-0.5 rounded bg-secondary-container/90 text-on-secondary-container font-label-sm text-label-sm font-bold">
+Viral Contrarian Outlier • 96%
+</div>
+</div>
+<div class="font-label-md text-label-md text-on-surface font-semibold line-clamp-2">
+"The illusion of passive audience loyalty in modern creator networks"
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest/60 text-body-sm font-body-sm text-on-surface-variant">
+<span class="text-secondary font-medium">Selection Reason:</span> Contrarian opening hook that challenges conventional creator wisdom within first 4 seconds.
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-outline">Target Platform:</span>
+<span class="px-2 py-0.5 rounded bg-secondary/10 text-secondary font-medium">TikTok / Shorts (9:16)</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs border-t border-outline-variant/20">
+<button class="flex-1 py-1.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">play_arrow</span> Preview
+</button>
+<button class="px-space-md py-1.5 rounded-lg bg-secondary-container text-on-secondary-container hover:opacity-90 font-label-sm text-label-sm transition-all font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">movie_edit</span> Review Clip &amp; Repurpose
+</button>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container p-space-sm flex flex-col justify-between space-y-space-sm group hover:bg-surface-container-high transition-colors border border-outline-variant/20">
+<div class="space-y-space-xs">
+<div class="relative rounded-lg overflow-hidden aspect-video bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close up shot of audio mixer dials and digital sound equipment in podcast studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4tGLDXpL721kcpPoBrkjDugzeSBY-HXeaO8Do7nrMH3vCytuJP28pUm-qLw0aFRMhNVxDi4_1BC_7FGNLHr6YqBQwmbTnZixvyPBWqT9seZ1ApdK2HB658BLzsA-nEz8S9R4ILvGE6eS790qCNkTFHR5LohY-J9sbvB6p-WfQQE7__A8lOKPWasDL_mmVs3_wFhU-LMQhzqQ4DJF2oln04BMFt8O3ka_b2HyawaZH"/>
+<div class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-secondary font-label-sm text-label-sm backdrop-blur">
+14:40 - 15:52 (72s)
+</div>
+<div class="absolute bottom-1.5 right-1.5 px-2 py-0.5 rounded bg-tertiary-container/90 text-on-tertiary-container font-label-sm text-label-sm font-bold">
+Actionable Framework • 93%
+</div>
+</div>
+<div class="font-label-md text-label-md text-on-surface font-semibold line-clamp-2">
+"Why small cohorts beat 100k subscriber channels in monetizable value"
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest/60 text-body-sm font-body-sm text-on-surface-variant">
+<span class="text-tertiary font-medium">Selection Reason:</span> High-density strategic breakdown with clear numerical comparisons and immediate takeaway.
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-outline">Target Platform:</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary font-medium">LinkedIn Video / X Native</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs pt-space-xs border-t border-outline-variant/20">
+<button class="flex-1 py-1.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">play_arrow</span> Preview
+</button>
+<button class="px-space-md py-1.5 rounded-lg bg-tertiary-container text-on-tertiary hover:opacity-90 font-label-sm text-label-sm transition-all font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">movie_edit</span> Review Clip &amp; Repurpose
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Content Publishing Pipeline -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Publishing Pipeline</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Queue: Today &amp; Tomorrow</h2>
+</div>
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm">
+<span class="px-2 py-1 rounded bg-surface-container text-on-surface font-medium">All Channels (3)</span>
+</div>
+</div>
+<div class="space-y-space-xs">
+<!-- Schedule Item 1 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="font-label-md text-label-md text-secondary shrink-0 w-16">11:30 AM</div>
+<div class="w-8 h-8 rounded-lg bg-[#0077B5]/20 text-[#4cd7f6] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</div>
+<div class="min-w-0">
+<div class="font-body-md text-body-md text-on-surface font-medium truncate">
+                  "Stop measuring impressions. Track compounding recall vectors."
+                </div>
+<div class="font-label-sm text-label-sm text-outline">LinkedIn Longform • Brand Repurposed</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary">Ready to Send</span>
+<button class="p-1 rounded text-outline hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Schedule Item 2 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="font-label-md text-label-md text-outline shrink-0 w-16">03:00 PM</div>
+<div class="w-8 h-8 rounded-lg bg-error-container/30 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">smart_display</span>
+</div>
+<div class="min-w-0">
+<div class="font-body-md text-body-md text-on-surface font-medium truncate">
+                  Vertical Reel #4: The Solo Media Network Architecture
+                </div>
+<div class="font-label-sm text-label-sm text-outline">YouTube Shorts + IG Reels • 9:16 Kinetic Subtitles</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-highest text-tertiary">Render Queued</span>
+<button class="p-1 rounded text-outline hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Schedule Item 3 -->
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="font-label-md text-label-md text-outline shrink-0 w-16">Tomorrow</div>
+<div class="w-8 h-8 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div class="min-w-0">
+<div class="font-body-md text-body-md text-on-surface font-medium truncate">
+                  IdeaOS Intelligence Dispatch #89: Synthesis Systems
+                </div>
+<div class="font-label-sm text-label-sm text-outline">Beehiiv / Substack • 1,420 words</div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-outline-variant/30 text-outline">Draft Pending Sign-off</span>
+<button class="p-1 rounded text-outline hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (Approx 35% - 4 cols on desktop) -->
+<div class="lg:col-span-4 space-y-space-lg">
+<!-- Brand DNA & Creative Memory Health -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-lg space-y-space-md"><div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Adaptive Intelligence</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Brand Memory &amp; Style Engine</h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-[22px]">psychology</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs p-space-sm rounded-xl bg-surface-container text-center border border-outline-variant/20">
+<div class="p-1">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">28</div>
+<div class="font-label-sm text-[10px] text-outline uppercase">Approved Rules</div>
+</div>
+<div class="p-1 border-x border-outline-variant/20">
+<div class="font-headline-sm text-headline-sm font-bold text-secondary">3</div>
+<div class="font-label-sm text-[10px] text-outline uppercase">Learned This Wk</div>
+</div>
+<div class="p-1">
+<div class="font-headline-sm text-headline-sm font-bold text-tertiary">0%</div>
+<div class="font-label-sm text-[10px] text-outline uppercase">Tone Drift</div>
+</div>
+</div>
+<div class="space-y-space-xs">
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-medium">Continuous Learning Sequence:</div>
+<div class="space-y-2 text-body-sm font-body-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/80 border border-error/20">
+<div class="font-label-sm text-[11px] text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cancel</span> 1. Original AI Output (Rejected)
+</div>
+<p class="text-outline mt-0.5 line-through italic text-[12px]">"In today's fast-paced world, leveraging synergistic AI workflows will unleash 10x ROI for modern founders."</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/80 border border-secondary/30">
+<div class="font-label-sm text-[11px] text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">edit_note</span> 2. Creator Edit Applied
+</div>
+<p class="text-on-surface mt-0.5 font-medium text-[12px]">"Most founders treat AI like an intern. Top creators treat it like a cognitive second brain."</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/80 border border-tertiary/30">
+<div class="font-label-sm text-[11px] text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span> 3. What AI Learned
+</div>
+<p class="text-on-surface-variant mt-0.5 text-[12px]">Avoid corporate jargon and buzzwords; deploy sharp, contrarian declarative statements.</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 flex items-center justify-between">
+<div class="font-label-sm text-[11px] text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span> 4. Future Impact
+</div>
+<span class="font-label-sm text-[11px] text-secondary font-medium">100% adherence on upcoming drafts</span>
+</div>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors text-center border border-outline-variant/30 font-medium" type="button">
+Configure Voice Rules &amp; Constraints →
+</button></div>
+<!-- Recommended Content Opportunities -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Opportunity Radar</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">AI Recommendations</h3>
+</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-tertiary-container/20 text-tertiary">3 Signals</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Opp 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary">High Virality Potential</span>
+<span class="font-label-sm text-label-sm text-outline">Search Surge +44%</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface font-medium">Breakdown: "Agentic Media Workflows"</div>
+<p class="font-body-sm text-body-sm text-outline">You have 4 notes in inbox referencing autonomous agents. Combine into a technical diagram.</p>
+<div class="pt-1 flex items-center justify-end">
+<button class="text-secondary font-label-sm text-label-sm hover:underline flex items-center gap-0.5" type="button">
+                Generate Outline →
+              </button>
+</div>
+</div>
+<!-- Opp 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary">Evergreen Refresh</span>
+<span class="font-label-sm text-label-sm text-outline">Past Top Performer</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface font-medium">Repurpose: "Audio-First Thinking"</div>
+<p class="font-body-sm text-body-sm text-outline">Published 9 months ago (12.4k views). Pivot toward new video podcast tools for 2025.</p>
+<div class="pt-1 flex items-center justify-end">
+<button class="text-tertiary font-label-sm text-label-sm hover:underline flex items-center gap-0.5" type="button">
+                Spin Refresh →
+              </button>
+</div>
+</div>
+<!-- Opp 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary">Contrarian Take</span>
+<span class="font-label-sm text-label-sm text-outline">Community Debate</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface font-medium">React to: "AI Video Is Saturated"</div>
+<p class="font-body-sm text-body-sm text-outline">Use your raw production telemetry from Episode #46 to debunk shallow video arguments.</p>
+<div class="pt-1 flex items-center justify-end">
+<button class="text-primary font-label-sm text-label-sm hover:underline flex items-center gap-0.5" type="button">
+                Start Draft →
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Activity & Resonance Stream -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">Live Activity Stream</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Real-time</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Activity 1 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-primary-container/20 text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">transcribe</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-body-sm text-body-sm text-on-surface">Voice memo <span class="font-medium text-secondary">"Late Night Reflections on Community"</span> automatically transcribed and tagged.</p>
+<div class="font-label-sm text-label-sm text-outline">12 minutes ago</div>
+</div>
+</div>
+<!-- Activity 2 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">thumb_up</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-body-sm text-body-sm text-on-surface">LinkedIn carousel reached 4.8% engagement threshold. Resonance flag raised.</p>
+<div class="font-label-sm text-label-sm text-outline">43 minutes ago</div>
+</div>
+</div>
+<!-- Activity 3 -->
+<div class="flex items-start gap-space-sm">
+<div class="w-6 h-6 rounded-full bg-tertiary-container/20 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span>
+</div>
+<div class="min-w-0 flex-1">
+<p class="font-body-sm text-body-sm text-on-surface">Synthesized 3 new clip variations from Ep #47 timeline bookmarks.</p>
+<div class="font-label-sm text-label-sm text-outline">2 hours ago</div>
+</div>
+</div>
+</div>
+<button class="w-full py-1 text-center font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors" type="button">
+          View full audit trail →
+        </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function triggerCaptureNotice() {
+    const input = document.getElementById('quick-scratchpad');
+    const alertBox = document.getElementById('capture-alert');
+    if (input && input.value.trim().length > 0) {
+      alertBox.classList.remove('hidden');
+      input.value = '';
+      setTimeout(() => {
+        alertBox.classList.add('hidden');
+      }, 4000);
+    } else {
+      input.focus();
+      input.placeholder = 'Please type a thought or drop an ingestion link first...';
+      setTimeout(() => {
+        input.placeholder = 'Dump a fleeting thought, voice fragment, or research URL to synthesize...';
+      }, 3000);
+    }
+  }
+
+  // Keyboard shortcut cmd+n or ctrl+n
+  window.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'n') {
+      e.preventDefault();
+      const input = document.getElementById('quick-scratchpad');
+      if (input) {
+        input.focus();
+        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  });
+</script></main></div></body></html>

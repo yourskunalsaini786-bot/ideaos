@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#d0bcff","surface":"#0f131c","on-tertiary-fixed-variant":"#5516be","outline-variant":"#424754","surface-container-lowest":"#0a0e16","on-secondary":"#003640","background":"#0f131c","on-secondary-container":"#00424e","surface-container-high":"#262a33","surface-bright":"#353942","surface-container-low":"#181c24","primary":"#adc6ff","inverse-surface":"#dfe2ee","on-primary-fixed":"#001a42","tertiary-fixed-dim":"#d0bcff","secondary":"#4cd7f6","error":"#ffb4ab","on-error":"#690005","secondary-fixed-dim":"#4cd7f6","inverse-on-surface":"#2c3039","surface-variant":"#31353e","on-primary":"#002e6a","primary-fixed":"#d8e2ff","surface-container":"#1c2028","surface-dim":"#0f131c","on-surface":"#dfe2ee","secondary-fixed":"#acedff","on-tertiary":"#3c0091","on-tertiary-fixed":"#23005c","secondary-container":"#03b5d3","on-tertiary-container":"#340080","on-primary-fixed-variant":"#004395","tertiary-container":"#a078ff","on-secondary-fixed":"#001f26","surface-container-highest":"#31353e","on-secondary-fixed-variant":"#004e5c","tertiary-fixed":"#e9ddff","error-container":"#93000a","inverse-primary":"#005ac2","on-background":"#dfe2ee","on-primary-container":"#00285d","primary-fixed-dim":"#adc6ff","primary-container":"#4d8eff","outline":"#8c909f","surface-tint":"#adc6ff","on-error-container":"#ffdad6","on-surface-variant":"#c2c6d6"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-desktop":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem","margin-desktop":"2rem","space-md":"1rem","space-xl":"2.5rem","margin":"1rem","space-sm":"0.5rem","gutter":"1rem"},fontFamily:{"display-xl-mobile":["Geist"],"label-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"label-sm":["JetBrains Mono"],"headline-sm":["Geist"],"headline-lg-mobile":["Geist"],"body-lg":["Geist"],"body-md":["Geist"],"headline-md":["Geist"],"display-xl":["Geist"],"headline-lg":["Geist"],"body-sm":["Geist"]},fontSize:{"display-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.03em","fontWeight":"500"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"500"}],"display-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest flex flex-col z-50"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[18px]">memory</span></div><div class="flex flex-col"><span class="font-headline-sm text-body-sm font-semibold tracking-wide text-on-surface uppercase">IdeaOS</span><span class="font-label-sm text-label-sm text-outline">Intelligence Core</span></div></div><div class="w-2 h-2 rounded-full bg-secondary"></div></div><div class="px-space-md py-space-sm"><button class="w-full h-9 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary flex items-center justify-between px-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.2)] transition-all"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">bolt</span><span class="font-body-sm text-body-sm font-medium">Quick Capture</span></div><kbd class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest text-on-surface-variant">⌘N</kbd></button></div><div class="flex-1 overflow-y-auto px-space-sm py-space-xs space-y-space-md"><nav class="space-y-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-medium rounded-lg"><div class="px-space-sm pt-space-xs pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Home</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="font-body-sm text-body-sm">Overview</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="quick-capture" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">flash_on</span><span class="font-body-sm text-body-sm">Quick Capture</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="notifications" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="font-body-sm text-body-sm">Notifications</span></div><span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">3</span></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Creative Intelligence</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-inbox" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">inbox</span><span class="font-body-sm text-body-sm">Idea Inbox</span></div><span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">14</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-fusion" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">auto_awesome</span><span class="font-body-sm text-body-sm">Idea Fusion</span></div><span class="px-space-xs py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm">3 new</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-graph" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span><span class="font-body-sm text-body-sm">Idea Graph</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-library" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">collections_bookmark</span><span class="font-body-sm text-body-sm">Idea Library</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Media Studio</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="video-and-podcast-ingestion-studio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">podcasts</span><span class="font-body-sm text-body-sm">Video & Podcast Studio</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="ai-clip-selection-studio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">video_file</span><span class="font-body-sm text-body-sm">Clip Selection Studio</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-repurposing-studio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">transform</span><span class="font-body-sm text-body-sm">Content Repurposing</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-drafts" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">edit_note</span><span class="font-body-sm text-body-sm">Content Drafts</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Brand Intelligence</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="brand-dna-and-adaptive-brand-memory-suite" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">psychology</span><span class="font-body-sm text-body-sm">Brand DNA & Memory</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="voice-and-style-rules" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">tune</span><span class="font-body-sm text-body-sm">Voice & Style Rules</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Publishing</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-calendar" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span class="font-body-sm text-body-sm">Content Calendar</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="publishing-pipeline" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">rocket_launch</span><span class="font-body-sm text-body-sm">Publishing Pipeline</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Analytics</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="performance-intelligence" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">analytics</span><span class="font-body-sm text-body-sm">Performance Intelligence</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-insights" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">insights</span><span class="font-body-sm text-body-sm">Content Insights</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Settings</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="workspace-and-integrations" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">settings</span><span class="font-body-sm text-body-sm">Workspace & Integrations</span></div></a></nav></div><div class="p-space-sm bg-surface-container-lowest"><div class="flex items-center justify-between p-space-xs rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Editorial Director</span><span class="font-label-sm text-label-sm text-outline">studio@ideaos.ai</span></div></div><button class="p-1 text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.2)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="text-on-surface font-medium">IdeaOS Studio</span><span class="text-outline">/</span><span>Command Console</span></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-[16px] text-outline">search</span><input class="w-64 h-8 pl-8 pr-12 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Search commands or ideas..." type="text"/><kbd class="absolute right-2 font-label-sm text-label-sm px-1 py-0.5 rounded bg-surface-container text-outline">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div><span class="font-label-sm text-label-sm text-on-surface-variant">Brand Memory Sync:</span><span class="font-label-sm text-label-sm font-medium text-secondary">99.4%</span></div><button class="h-8 px-space-sm rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-medium flex items-center gap-space-xs transition-colors"><span class="material-symbols-outlined text-[16px]">add</span><span>Quick Capture</span></button><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 w-full bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glows -->
+<div class="relative w-full overflow-hidden px-space-md lg:px-margin-desktop py-space-lg space-y-space-xl">
+<div class="absolute -top-32 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-80 right-10 w-80 h-80 bg-tertiary-container/15 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Section 1: Strategic Header & Telemetry Stat Strip -->
+<header class="relative flex flex-col gap-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-outline tracking-wider uppercase">
+<span class="text-tertiary font-medium">Brand Intelligence</span>
+<span>/</span>
+<span class="text-on-surface-variant">Cognitive Synthesis</span>
+<span>/</span>
+<span class="text-secondary">Self-Calibrating Memory</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Brand DNA & Adaptive Memory Suite
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Continuous cognitive learning engine. IdeaOS observes your live post-generation edits, infers nuanced lexical tendencies, and writes permanent generative negative constraints into downstream models.
+          </p>
+</div>
+<div class="flex items-center flex-wrap gap-space-sm">
+<button class="h-9 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-all flex items-center gap-space-xs shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-outline">file_download</span>
+<span>Export Style Guide (PDF/JSON)</span>
+</button>
+<button class="h-9 px-space-md rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-semibold transition-all flex items-center gap-space-xs shadow-md" id="add-rule-btn">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+<span>+ Add Explicit Voice Rule</span>
+</button>
+</div>
+</div>
+<!-- Telemetry Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Stat 1 -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Active Policy Rules</span>
+<div class="w-6 h-6 rounded bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-xl text-display-xl font-bold text-on-surface">28</span>
+<span class="font-label-md text-label-md text-secondary">Rules Active</span>
+</div>
+<div class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Enforced across 6 distribution pipelines
+          </div>
+</div>
+<!-- Stat 2 -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Autonomous Inferences</span>
+<div class="w-6 h-6 rounded bg-tertiary/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[16px]">psychology</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-xl text-display-xl font-bold text-tertiary">+3</span>
+<span class="font-label-md text-label-md text-on-surface">Learned This Week</span>
+</div>
+<div class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+            Derived from 34 inline creator edits
+          </div>
+</div>
+<!-- Stat 3 -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Observed Tone Drift</span>
+<div class="w-6 h-6 rounded bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-xl text-display-xl font-bold text-secondary">0.0%</span>
+<span class="font-label-md text-label-md text-outline">Drift Tolerance</span>
+</div>
+<div class="mt-space-xs font-body-sm text-body-sm text-on-surface-variant flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Zero deviation over last 14 production drafts
+          </div>
+</div>
+<!-- Stat 4 -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md flex flex-col justify-between shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Memory Coherence</span>
+<div class="w-6 h-6 rounded bg-primary-container/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-display-xl text-display-xl font-bold text-on-surface">99.4%</span>
+<span class="font-label-md text-label-md text-primary">Synced</span>
+</div>
+<!-- Inline Mini Progress Metric -->
+<div class="mt-space-xs flex items-center gap-space-xs">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-primary" style="width: 99.4%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">784 vectors</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Visual Divider -->
+<div class="w-full h-px bg-surface-container-high"></div>
+<!-- Section 2: Interactive Learning-From-Edits Workspace -->
+<section class="space-y-space-md">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+<span>Adaptive Delta Engine</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight mt-1">
+            Recent Adaptive Learning Cycles (AI Output vs Creator Edits)
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            How IdeaOS transforms manual revisions into permanent generative constraints without manual prompting.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest p-1 rounded-lg">
+<button class="px-space-sm py-1 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface font-medium">All Cycles (24)</button>
+<button class="px-space-sm py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface">Needs Review (1)</button>
+<button class="px-space-sm py-1 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface">Applied (23)</button>
+</div>
+</div>
+<!-- Comparison Card 1: Active Enforced Rule -->
+<article class="rounded-xl bg-surface-container-low p-space-md lg:p-space-lg shadow-md space-y-space-md relative overflow-hidden transition-all hover:bg-surface-container">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm border-b border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Active Rule #19
+            </span>
+<span class="font-label-sm text-label-sm text-outline">Triggered by: LinkedIn Thought Leadership Draft #104</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-tertiary">Learned 2 hours ago</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1 px-space-xs py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary">bolt</span>
+<span>Confidence: 98.6%</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Category: Hook Syntax & Vocabulary</span>
+</div>
+</div>
+<!-- 3-Column Diagnostic Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-stretch">
+<!-- Column A: Original AI Draft (Rejected Elements) -->
+<div class="lg:col-span-4 rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+                  Original AI Output (Rejected)
+                </span>
+<span class="font-label-sm text-label-sm text-outline">Token Length: 24</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed pt-2">
+                "In <span class="bg-error-container/30 text-error line-through px-1 rounded">today's fast-paced digital world</span>, <span class="bg-error-container/30 text-error line-through px-1 rounded">leveraging</span> AI workflows is <span class="bg-error-container/30 text-error line-through px-1 rounded">mission-critical</span> for modern founders looking to <span class="bg-error-container/30 text-error line-through px-1 rounded">unlock exponential growth</span>."
+              </p>
+</div>
+<div class="mt-space-md pt-space-xs text-outline font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">flag</span>
+<span>Identified: 4 Buzzword Clichés & Platitudes</span>
+</div>
+</div>
+<!-- Column B: Creator's Live Edit (Approved) -->
+<div class="lg:col-span-4 rounded-lg bg-surface-container p-space-md flex flex-col justify-between shadow-inner">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                  Creator's Live Edit (Approved)
+                </span>
+<span class="font-label-sm text-label-sm text-secondary">Manual Delta</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed pt-2">
+                "<span class="bg-secondary-container/20 text-secondary px-1 rounded">Most founders treat AI like an intern.</span> <span class="bg-primary-container/20 text-primary px-1 rounded">Top creators treat it like a cognitive second brain.</span>"
+              </p>
+</div>
+<div class="mt-space-md pt-space-xs text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">psychology_alt</span>
+<span>Observed: Sharp contrarian dichotomy; declarative assertion</span>
+</div>
+</div>
+<!-- Column C: What IdeaOS Inferred & Learned -->
+<div class="lg:col-span-4 rounded-lg bg-surface-container-high p-space-md flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">memory</span>
+                  Inferred Constraint Architecture
+                </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-lowest text-tertiary">Synthesized</span>
+</div>
+<div class="space-y-2 pt-2">
+<p class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">
+                  Rule #19: Strictly ban corporate clichés and introductory throat-clearing. Open posts with sharp, contrarian declarative statements comparing two opposing viewpoints.
+                </p>
+<div class="p-2 rounded bg-surface-container-lowest/80 text-on-surface-variant font-label-sm text-label-sm space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-outline">Impact Area:</span>
+<span class="text-on-surface">6/6 Multi-Platform Generators</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Negative Penalties:</span>
+<span class="text-error">"leveraging", "mission-critical"</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="mt-space-md pt-space-xs flex items-center justify-between gap-space-xs">
+<button class="h-8 px-space-sm rounded bg-surface-container-lowest hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors">
+                Edit Rule
+              </button>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-sm rounded bg-surface-container-lowest hover:bg-surface-bright text-outline hover:text-on-surface font-label-sm text-label-sm transition-colors">
+                  Pause
+                </button>
+<button class="h-8 px-space-sm rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span>
+                  History
+                </button>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Comparison Card 2: Pending Approval Cycle -->
+<article class="rounded-xl bg-surface-container-low p-space-md lg:p-space-lg shadow-md space-y-space-md relative overflow-hidden transition-all hover:bg-surface-container" id="pending-card">
+<div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-sm border-b border-surface-container-high">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+              Awaiting Approval • Inferred 14m ago
+            </span>
+<span class="font-label-sm text-label-sm text-outline">Triggered by: Newsletter Outro & X Thread Closer</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-secondary">Predicted Retention Lift: +34%</span>
+</div>
+</div>
+<!-- 3-Column Diagnostic Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-stretch">
+<!-- Column A -->
+<div class="lg:col-span-4 rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+                  AI Generation Candidate
+                </span>
+<span class="font-label-sm text-label-sm text-outline">CTA Pattern</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed pt-2">
+                "<span class="bg-error-container/30 text-error line-through px-1 rounded">Don't forget to like, subscribe, and share this post if you found it helpful</span> for your business journey!"
+              </p>
+</div>
+<div class="mt-space-md text-outline font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">warning</span>
+<span>Identified: Generic engagement begging without value transfer</span>
+</div>
+</div>
+<!-- Column B -->
+<div class="lg:col-span-4 rounded-lg bg-surface-container p-space-md flex flex-col justify-between shadow-inner">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+                  What Creator Changed It To
+                </span>
+<span class="font-label-sm text-label-sm text-secondary">High-Conversion CTA</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-medium leading-relaxed pt-2">
+                "<span class="bg-secondary-container/20 text-secondary px-1 rounded">Steal this framework before your competitors figure it out.</span> Drop a comment with your biggest bottleneck and I'll send the raw Figma file."
+              </p>
+</div>
+<div class="mt-space-md text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">trending_up</span>
+<span>Observed: Asymmetric lead magnet + peer competitive tension</span>
+</div>
+</div>
+<!-- Column C -->
+<div class="lg:col-span-4 rounded-lg bg-surface-container-high p-space-md flex flex-col justify-between">
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span>
+                  Proposed New Memory Rule
+                </span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-tertiary/20 text-tertiary">Confidence: 94.2%</span>
+</div>
+<div class="pt-2">
+<p class="font-body-sm text-body-sm text-on-surface font-semibold leading-snug">
+                  Rule #29 (Proposed): Replace generic engagement begs with immediate value-exchange CTAs (offer concrete raw assets in exchange for specific user problem statements).
+                </p>
+</div>
+</div>
+<!-- Decision Action Bar -->
+<div class="mt-space-md pt-space-xs flex items-center gap-space-xs" id="review-action-group">
+<button class="flex-1 h-9 px-space-sm rounded-lg bg-secondary text-on-secondary font-label-md text-label-md font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-1 shadow-sm" id="approve-rule-btn">
+<span class="material-symbols-outlined text-[16px]">add_task</span>
+<span>Approve & Commit</span>
+</button>
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-lowest hover:bg-surface-bright text-on-surface font-label-sm text-label-sm transition-colors">
+                Modify
+              </button>
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-lowest hover:bg-error-container text-outline hover:text-on-error-container font-label-sm text-label-sm transition-colors" id="reject-rule-btn">
+                Reject
+              </button>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- Visual Divider -->
+<div class="w-full h-px bg-surface-container-high"></div>
+<!-- Section 3: Voice Guidelines, Negative Vocabulary Matrix & Dynamic Knobs -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Column: Prohibited Lexicon & Content Anchors (7 cols) -->
+<div class="lg:col-span-7 space-y-space-md">
+<!-- Negative Vocabulary Matrix -->
+<div class="rounded-xl bg-surface-container-low p-space-md lg:p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Prohibited Negative Vocabulary Matrix</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Model temperature hard-bans. If generated, immediate regenerative pass triggered.</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-error font-medium">17 Banned Tokens</span>
+</div>
+<!-- Pill Cloud of Banned Words -->
+<div class="flex flex-wrap gap-space-xs pt-space-xs" id="banned-lexicon-container">
+<div class="group px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-error">do_not_disturb_on</span>
+<span class="line-through">delve</span>
+<span class="text-outline text-[10px] group-hover:text-error">banned</span>
+</div>
+<div class="group px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-error">do_not_disturb_on</span>
+<span class="line-through">game-changer</span>
+<span class="text-outline text-[10px] group-hover:text-error">banned</span>
+</div>
+<div class="group px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-error">do_not_disturb_on</span>
+<span class="line-through">testament to</span>
+<span class="text-outline text-[10px] group-hover:text-error">banned</span>
+</div>
+<div class="group px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-error">do_not_disturb_on</span>
+<span class="line-through">supercharge</span>
+<span class="text-outline text-[10px] group-hover:text-error">banned</span>
+</div>
+<div class="group px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-error">do_not_disturb_on</span>
+<span class="line-through">synergy</span>
+<span class="text-outline text-[10px] group-hover:text-error">banned</span>
+</div>
+<div class="group px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-error">do_not_disturb_on</span>
+<span class="line-through">in a world where</span>
+<span class="text-outline text-[10px] group-hover:text-error">banned</span>
+</div>
+<div class="group px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-error">do_not_disturb_on</span>
+<span class="line-through">let's unpack this</span>
+<span class="text-outline text-[10px] group-hover:text-error">banned</span>
+</div>
+<div class="group px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-error">do_not_disturb_on</span>
+<span class="line-through">revolutionize</span>
+<span class="text-outline text-[10px] group-hover:text-error">banned</span>
+</div>
+<div class="group px-space-sm py-1 rounded bg-surface-container-lowest hover:bg-error-container/20 text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5 font-label-sm text-label-sm cursor-pointer">
+<span class="material-symbols-outlined text-[14px] text-error">do_not_disturb_on</span>
+<span class="line-through">beacon of hope</span>
+<span class="text-outline text-[10px] group-hover:text-error">banned</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-primary font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>Add Banned Phrasing</span>
+</button>
+</div>
+</div>
+<!-- Content Pillars & Voice Anchors -->
+<div class="rounded-xl bg-surface-container-low p-space-md lg:p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Core Pillars & Semantic Anchors</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The 3 thematic pillars IdeaOS forces all generated concepts to ground against.</p>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+              Rebalance Weights
+            </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm">
+<!-- Pillar 1 -->
+<div class="rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between space-y-space-sm">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Pillar 01</span>
+<span class="font-label-sm text-label-sm text-outline">Weight: 45%</span>
+</div>
+<h4 class="font-headline-sm text-body-lg text-on-surface font-semibold leading-tight">
+                  Founder-Led Media Systems
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+                  Tactical playbooks for turning organic engineering & product workflows into distribution engines.
+                </p>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-label-sm text-outline pt-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>42 Published Drafts</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between space-y-space-sm">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">Pillar 02</span>
+<span class="font-label-sm text-label-sm text-outline">Weight: 35%</span>
+</div>
+<h4 class="font-headline-sm text-body-lg text-on-surface font-semibold leading-tight">
+                  Cognitive AI Architecture
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+                  Rigorous teardowns of prompt chaining, local LLM orchestration, and generative workflow economics.
+                </p>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-label-sm text-outline pt-2">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>31 Published Drafts</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="rounded-lg bg-surface-container-lowest p-space-md flex flex-col justify-between space-y-space-sm">
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-semibold">Pillar 03</span>
+<span class="font-label-sm text-label-sm text-outline">Weight: 20%</span>
+</div>
+<h4 class="font-headline-sm text-body-lg text-on-surface font-semibold leading-tight">
+                  Organic Distribution Economics
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+                  Zero-CAC acquisition, viral loop mathematics, and audience retention metrics.
+                </p>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-label-sm text-outline pt-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>19 Published Drafts</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Tone Knobs & Calibration Console (5 cols) -->
+<div class="lg:col-span-5 space-y-space-md">
+<div class="rounded-xl bg-surface-container-low p-space-md lg:p-space-lg shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-7 h-7 rounded bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">equalizer</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Adaptive Tone Sliders</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Dynamic telemetry knobs self-adjusted from your last edits.</p>
+</div>
+</div>
+<button class="font-label-sm text-label-sm text-outline hover:text-on-surface transition-colors" id="reset-knobs">Reset</button>
+</div>
+<!-- Knob 1: Formality -->
+<div class="space-y-space-xs bg-surface-container-lowest p-space-md rounded-lg">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Formality Index</span>
+<span class="font-label-sm text-label-sm text-secondary" id="formality-val">Conversational (22%)</span>
+</div>
+<input class="w-full accent-secondary bg-surface-container-high h-1.5 rounded-lg appearance-none cursor-pointer" id="formality-range" max="100" min="0" type="range" value="22"/>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>Street/Casual</span>
+<span>Conversational</span>
+<span>Academic Whitepaper</span>
+</div>
+</div>
+<!-- Knob 2: Density -->
+<div class="space-y-space-xs bg-surface-container-lowest p-space-md rounded-lg">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Information Density</span>
+<span class="font-label-sm text-label-sm text-primary" id="density-val">High / Rigorous (88%)</span>
+</div>
+<input class="w-full accent-primary bg-surface-container-high h-1.5 rounded-lg appearance-none cursor-pointer" id="density-range" max="100" min="0" type="range" value="88"/>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>Light Skimmable</span>
+<span>Tactical Mid</span>
+<span>High Rigor / Bulleted</span>
+</div>
+</div>
+<!-- Knob 3: Contrarian Bias -->
+<div class="space-y-space-xs bg-surface-container-lowest p-space-md rounded-lg">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Contrarian Bias</span>
+<span class="font-label-sm text-label-sm text-tertiary" id="contrarian-val">High (75%)</span>
+</div>
+<input class="w-full accent-tertiary bg-surface-container-high h-1.5 rounded-lg appearance-none cursor-pointer" id="contrarian-range" max="100" min="0" type="range" value="75"/>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>Consensus Safe</span>
+<span>Balanced Take</span>
+<span>Unapologetic Contrarian</span>
+</div>
+</div>
+<!-- Knob 4: Humor & Wit -->
+<div class="space-y-space-xs bg-surface-container-lowest p-space-md rounded-lg">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-medium">Humor & Wit Style</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant" id="humor-val">Subtle Dry Irony (35%)</span>
+</div>
+<input class="w-full accent-surface-tint bg-surface-container-high h-1.5 rounded-lg appearance-none cursor-pointer" id="humor-range" max="100" min="0" type="range" value="35"/>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>Zero Humor</span>
+<span>Dry Irony</span>
+<span>High Memetic</span>
+</div>
+</div>
+<!-- Live Memory Pulse Widget -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-3 h-3">
+<span class="absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75 animate-ping"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Memory Vector Sync Live</span>
+<span class="font-label-sm text-label-sm text-outline">Last fine-tuning checkpoint: 4m ago</span>
+</div>
+</div>
+<button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm">
+              Trigger Sync
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Modal Mock for Adding Explicit Rule (Hidden by default, triggered by JS) -->
+<div class="fixed inset-0 z-50 bg-surface-container-lowest/80 backdrop-blur-sm hidden items-center justify-center p-space-md" id="add-rule-modal">
+<div class="bg-surface-container-low max-w-xl w-full rounded-xl p-space-lg shadow-xl space-y-space-md relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">add_circle</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Add Explicit Voice Constraint</h3>
+</div>
+<button class="text-outline hover:text-on-surface" id="close-modal-btn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="space-y-space-sm">
+<div>
+<label class="block font-label-sm text-label-sm text-outline uppercase mb-1">Constraint Statement</label>
+<textarea class="w-full rounded bg-surface-container-lowest p-space-sm text-on-surface font-body-sm text-body-sm focus:outline-none focus:ring-1 focus:ring-primary" id="rule-input" placeholder="e.g., Never conclude posts with 'What do you think? Let me know below.' Use direct challenging prompts instead." rows="3"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-sm text-label-sm text-outline uppercase mb-1">Target Surface</label>
+<select class="w-full rounded bg-surface-container-lowest p-space-sm text-on-surface font-label-sm text-label-sm">
+<option>All 6 Channels (Global)</option>
+<option>X / Twitter Threads Only</option>
+<option>LinkedIn Articles Only</option>
+<option>Email Newsletters Only</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-outline uppercase mb-1">Rule Severity</label>
+<select class="w-full rounded bg-surface-container-lowest p-space-sm text-on-surface font-label-sm text-label-sm">
+<option>Hard Constraint (Regenerate if violated)</option>
+<option>Soft Bias (Downweight penalty)</option>
+</select>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-xs pt-space-xs">
+<button class="px-space-md h-9 rounded bg-surface-container text-on-surface font-label-sm text-label-sm" id="cancel-rule-btn">Cancel</button>
+<button class="px-space-md h-9 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold" id="commit-rule-btn">Commit to Memory</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple Micro-Interactions for Tone Knobs & Review Approvals
+  const formalityRange = document.getElementById('formality-range');
+  const formalityVal = document.getElementById('formality-val');
+  if (formalityRange && formalityVal) {
+    formalityRange.addEventListener('input', (e) => {
+      formalityVal.textContent = e.target.value > 60 ? `Academic (${e.target.value}%)` : e.target.value > 30 ? `Balanced (${e.target.value}%)` : `Conversational (${e.target.value}%)`;
+    });
+  }
+
+  const densityRange = document.getElementById('density-range');
+  const densityVal = document.getElementById('density-val');
+  if (densityRange && densityVal) {
+    densityRange.addEventListener('input', (e) => {
+      densityVal.textContent = e.target.value > 70 ? `High / Rigorous (${e.target.value}%)` : `Light / Skimmable (${e.target.value}%)`;
+    });
+  }
+
+  const contrarianRange = document.getElementById('contrarian-range');
+  const contrarianVal = document.getElementById('contrarian-val');
+  if (contrarianRange && contrarianVal) {
+    contrarianRange.addEventListener('input', (e) => {
+      contrarianVal.textContent = e.target.value > 65 ? `High Contrarian (${e.target.value}%)` : `Moderate Consensus (${e.target.value}%)`;
+    });
+  }
+
+  // Interactive Cycle 2 Review Action
+  const approveBtn = document.getElementById('approve-rule-btn');
+  const rejectBtn = document.getElementById('reject-rule-btn');
+  const pendingCard = document.getElementById('pending-card');
+  const actionGroup = document.getElementById('review-action-group');
+
+  if (approveBtn && pendingCard) {
+    approveBtn.addEventListener('click', () => {
+      actionGroup.innerHTML = `
+        <div class="w-full flex items-center justify-between p-2 rounded bg-secondary-container/20 text-secondary font-label-sm text-label-sm">
+          <div class="flex items-center gap-1.5 font-medium">
+            <span class="material-symbols-outlined text-[16px]">check_circle</span>
+            <span>Committed to Brand Memory as Rule #29</span>
+          </div>
+          <span class="text-on-surface-variant font-normal">Active across pipelines</span>
+        </div>
+      `;
+    });
+  }
+
+  if (rejectBtn && pendingCard) {
+    rejectBtn.addEventListener('click', () => {
+      actionGroup.innerHTML = `
+        <div class="w-full flex items-center justify-between p-2 rounded bg-surface-container-highest text-outline font-label-sm text-label-sm">
+          <span>Rule proposal discarded. Feedback logged to learning engine.</span>
+        </div>
+      `;
+    });
+  }
+
+  // Modal interactions
+  const addRuleBtn = document.getElementById('add-rule-btn');
+  const addRuleModal = document.getElementById('add-rule-modal');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+  const cancelRuleBtn = document.getElementById('cancel-rule-btn');
+  const commitRuleBtn = document.getElementById('commit-rule-btn');
+
+  const toggleModal = (show) => {
+    if (addRuleModal) {
+      if (show) {
+        addRuleModal.classList.remove('hidden');
+        addRuleModal.classList.add('flex');
+      } else {
+        addRuleModal.classList.add('hidden');
+        addRuleModal.classList.remove('flex');
+      }
+    }
+  };
+
+  if (addRuleBtn) addRuleBtn.addEventListener('click', () => toggleModal(true));
+  if (closeModalBtn) closeModalBtn.addEventListener('click', () => toggleModal(false));
+  if (cancelRuleBtn) cancelRuleBtn.addEventListener('click', () => toggleModal(false));
+  if (commitRuleBtn) commitRuleBtn.addEventListener('click', () => toggleModal(false));
+</script></main></div></body></html>

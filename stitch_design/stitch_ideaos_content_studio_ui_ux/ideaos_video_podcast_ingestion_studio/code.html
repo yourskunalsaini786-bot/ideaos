@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#d0bcff","surface":"#0f131c","on-tertiary-fixed-variant":"#5516be","outline-variant":"#424754","surface-container-lowest":"#0a0e16","on-secondary":"#003640","background":"#0f131c","on-secondary-container":"#00424e","surface-container-high":"#262a33","surface-bright":"#353942","surface-container-low":"#181c24","primary":"#adc6ff","inverse-surface":"#dfe2ee","on-primary-fixed":"#001a42","tertiary-fixed-dim":"#d0bcff","secondary":"#4cd7f6","error":"#ffb4ab","on-error":"#690005","secondary-fixed-dim":"#4cd7f6","inverse-on-surface":"#2c3039","surface-variant":"#31353e","on-primary":"#002e6a","primary-fixed":"#d8e2ff","surface-container":"#1c2028","surface-dim":"#0f131c","on-surface":"#dfe2ee","secondary-fixed":"#acedff","on-tertiary":"#3c0091","on-tertiary-fixed":"#23005c","secondary-container":"#03b5d3","on-tertiary-container":"#340080","on-primary-fixed-variant":"#004395","tertiary-container":"#a078ff","on-secondary-fixed":"#001f26","surface-container-highest":"#31353e","on-secondary-fixed-variant":"#004e5c","tertiary-fixed":"#e9ddff","error-container":"#93000a","inverse-primary":"#005ac2","on-background":"#dfe2ee","on-primary-container":"#00285d","primary-fixed-dim":"#adc6ff","primary-container":"#4d8eff","outline":"#8c909f","surface-tint":"#adc6ff","on-error-container":"#ffdad6","on-surface-variant":"#c2c6d6"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-desktop":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem","margin-desktop":"2rem","space-md":"1rem","space-xl":"2.5rem","margin":"1rem","space-sm":"0.5rem","gutter":"1rem"},fontFamily:{"display-xl-mobile":["Geist"],"label-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"label-sm":["JetBrains Mono"],"headline-sm":["Geist"],"headline-lg-mobile":["Geist"],"body-lg":["Geist"],"body-md":["Geist"],"headline-md":["Geist"],"display-xl":["Geist"],"headline-lg":["Geist"],"body-sm":["Geist"]},fontSize:{"display-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.03em","fontWeight":"500"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"500"}],"display-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest flex flex-col z-50"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[18px]">memory</span></div><div class="flex flex-col"><span class="font-headline-sm text-body-sm font-semibold tracking-wide text-on-surface uppercase">IdeaOS</span><span class="font-label-sm text-label-sm text-outline">Intelligence Core</span></div></div><div class="w-2 h-2 rounded-full bg-secondary"></div></div><div class="px-space-md py-space-sm"><button class="w-full h-9 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary flex items-center justify-between px-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.2)] transition-all"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">bolt</span><span class="font-body-sm text-body-sm font-medium">Quick Capture</span></div><kbd class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest text-on-surface-variant">⌘N</kbd></button></div><div class="flex-1 overflow-y-auto px-space-sm py-space-xs space-y-space-md"><nav class="space-y-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-medium rounded-lg"><div class="px-space-sm pt-space-xs pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Home</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="font-body-sm text-body-sm">Overview</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="quick-capture" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">flash_on</span><span class="font-body-sm text-body-sm">Quick Capture</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="notifications" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="font-body-sm text-body-sm">Notifications</span></div><span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">3</span></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Creative Intelligence</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-inbox" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">inbox</span><span class="font-body-sm text-body-sm">Idea Inbox</span></div><span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">14</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-fusion" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">auto_awesome</span><span class="font-body-sm text-body-sm">Idea Fusion</span></div><span class="px-space-xs py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm">3 new</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-graph" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span><span class="font-body-sm text-body-sm">Idea Graph</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-library" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">collections_bookmark</span><span class="font-body-sm text-body-sm">Idea Library</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Media Studio</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="video-and-podcast-ingestion-studio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">podcasts</span><span class="font-body-sm text-body-sm">Video & Podcast Studio</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="ai-clip-selection-studio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">video_file</span><span class="font-body-sm text-body-sm">Clip Selection Studio</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-repurposing-studio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">transform</span><span class="font-body-sm text-body-sm">Content Repurposing</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-drafts" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">edit_note</span><span class="font-body-sm text-body-sm">Content Drafts</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Brand Intelligence</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="brand-dna-and-adaptive-brand-memory-suite" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">psychology</span><span class="font-body-sm text-body-sm">Brand DNA & Memory</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="voice-and-style-rules" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">tune</span><span class="font-body-sm text-body-sm">Voice & Style Rules</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Publishing</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-calendar" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span class="font-body-sm text-body-sm">Content Calendar</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="publishing-pipeline" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">rocket_launch</span><span class="font-body-sm text-body-sm">Publishing Pipeline</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Analytics</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="performance-intelligence" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">analytics</span><span class="font-body-sm text-body-sm">Performance Intelligence</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-insights" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">insights</span><span class="font-body-sm text-body-sm">Content Insights</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Settings</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="workspace-and-integrations" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">settings</span><span class="font-body-sm text-body-sm">Workspace & Integrations</span></div></a></nav></div><div class="p-space-sm bg-surface-container-lowest"><div class="flex items-center justify-between p-space-xs rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Editorial Director</span><span class="font-label-sm text-label-sm text-outline">studio@ideaos.ai</span></div></div><button class="p-1 text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.2)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="text-on-surface font-medium">IdeaOS Studio</span><span class="text-outline">/</span><span>Command Console</span></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-[16px] text-outline">search</span><input class="w-64 h-8 pl-8 pr-12 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Search commands or ideas..." type="text"/><kbd class="absolute right-2 font-label-sm text-label-sm px-1 py-0.5 rounded bg-surface-container text-outline">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div><span class="font-label-sm text-label-sm text-on-surface-variant">Brand Memory Sync:</span><span class="font-label-sm text-label-sm font-medium text-secondary">99.4%</span></div><button class="h-8 px-space-sm rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-medium flex items-center gap-space-xs transition-colors"><span class="material-symbols-outlined text-[16px]">add</span><span>Quick Capture</span></button><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 w-full bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command Context Bar -->
+<div class="w-full px-margin-desktop py-space-md bg-surface-container-lowest flex flex-col md:flex-row md:items-center justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-outline">
+<span class="tracking-widest uppercase">MEDIA STUDIO</span>
+<span>/</span>
+<span class="text-secondary font-medium uppercase tracking-wide">Video & Podcast Studio</span>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<h1 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">Media Ingestion & Semantic Deconstruction</h1>
+<div class="flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-secondary">Dual-Engine Pipeline (Whisper-v3 + Cognitive Chaptering Active)</span>
+</div>
+</div>
+</div>
+<!-- Quick Global Actions -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-9 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium flex items-center gap-space-xs shadow-sm transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[16px] text-tertiary">cloud_sync</span>
+<span>Batch Import (RSS / YT)</span>
+</button>
+<button class="h-9 px-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-body-sm text-body-sm font-medium flex items-center gap-space-xs shadow-sm transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[16px]">upload_file</span>
+<span>Upload Media File</span>
+<kbd class="font-label-sm text-label-sm px-1 py-0.5 rounded bg-surface-container-lowest text-primary">⌘U</kbd>
+</button>
+</div>
+</div>
+<div class="px-margin-desktop py-space-lg flex flex-col gap-space-xl">
+<!-- Top Intake Bento: Ingestion Dropzone & Live Pipeline Telemetry -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-desktop items-stretch">
+<!-- High-Fidelity Intake Zone (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-md relative overflow-hidden group">
+<div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">sensors</span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Multi-Modal Ingestion Gateway</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Max payload: 4.0 GB / session</span>
+</div>
+<!-- Interactive Drag-Zone Container -->
+<div class="my-space-sm p-space-lg rounded-lg bg-surface-container-lowest/80 flex flex-col items-center justify-center text-center cursor-pointer transition-colors duration-200 hover:bg-surface-container/60">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-secondary mb-space-sm shadow-inner group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-[26px]">drive_folder_upload</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface font-medium">Drop Episode 4K Video, Podcast Audio, or SRT/VTT</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-md">
+            Directly parse multi-track MP4, MOV, WAV, FLAC, M4A. Whisper-v3 diarization activates instantly upon transfer.
+          </p>
+<div class="flex flex-wrap items-center justify-center gap-space-xs mt-space-md">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">MP4 4K</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Apple ProRes</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">WAV 96kHz</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">VTT Captions</span>
+</div>
+</div>
+<!-- URL Quick Parsing Strip -->
+<div class="pt-space-sm flex items-center gap-space-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[16px] text-outline">link</span>
+<input class="w-full h-9 pl-9 pr-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Paste YouTube, Substack, Riverside, or Spotify Master link..." type="text"/>
+</div>
+<button class="h-9 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium shrink-0 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary">download_for_offline</span>
+<span>Fetch Stream</span>
+</button>
+</div>
+</div>
+<!-- Active Ingestion Live Telemetry Card (5 cols) -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-xl p-space-lg flex flex-col justify-between shadow-md relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 w-44 h-44 rounded-full bg-tertiary/5 blur-3xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">memory</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Live Neural Processing Job</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-medium">Job #48-SYN</span>
+</div>
+<div class="mt-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight line-clamp-1">
+              #48: The Attention Arbitrage: Why Modern Brands Build Media Networks
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Whisper-v3 acoustic speech separation + semantic discourse structuring</p>
+</div>
+<!-- Progress Bar & Engine Steps -->
+<div class="mt-space-md">
+<div class="flex items-center justify-between font-label-sm text-label-sm pb-1.5">
+<span class="text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                Transcribing & Semantic Alignment
+              </span>
+<span class="text-secondary font-semibold">78.4%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-lowest overflow-hidden">
+<div class="h-full rounded-full bg-gradient-to-r from-secondary via-primary to-tertiary transition-all duration-300" style="width: 78.4%;"></div>
+</div>
+</div>
+<!-- Telemetry Badges Matrix -->
+<div class="grid grid-cols-3 gap-space-xs mt-space-md font-label-sm text-label-sm">
+<div class="p-space-xs rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">Duration</span>
+<span class="text-on-surface font-medium">42m 18s</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">Footprint</span>
+<span class="text-on-surface font-medium">1.84 GB</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">Encoding</span>
+<span class="text-on-surface font-medium">4K ProRes</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">Audio Matrix</span>
+<span class="text-on-surface font-medium">48kHz Stereo</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">Speakers</span>
+<span class="text-on-surface font-medium">2 Diarized</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container-lowest flex flex-col">
+<span class="text-outline">Time Left</span>
+<span class="text-secondary font-medium">~2m 14s</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>GPU Worker Node: us-east-h100-09</span>
+</div>
+<button class="text-outline hover:text-error transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">cancel</span>
+<span>Abort Job</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Studio Workspace: Media Player & Synchronized Semantic Inspector -->
+<div class="flex flex-col gap-space-md">
+<!-- Studio Control Ribbon -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="p-1 rounded bg-secondary-container/20 text-secondary">
+<span class="material-symbols-outlined text-[20px]">smart_display</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-medium">LOADED IN DECONSTRUCTION WORKSPACE</span>
+<span class="text-outline">•</span>
+<span class="font-label-sm text-label-sm text-outline">Processed 18m ago</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+              Episode #47: Creator Economy 3.0: The Solopreneur Media Company
+            </h2>
+</div>
+</div>
+<!-- Pipeline Export / Branch Action Strip -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="h-8 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm flex items-center gap-1 shadow-sm transition-all duration-150">
+<span class="material-symbols-outlined text-[15px] text-secondary">movie_edit</span>
+<span>Send to Clip Studio</span>
+</button>
+<button class="h-8 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm text-body-sm flex items-center gap-1 shadow-sm transition-all duration-150">
+<span class="material-symbols-outlined text-[15px] text-tertiary">lightbulb</span>
+<span>Extract Theses to Inbox</span>
+</button>
+<button class="h-8 px-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm flex items-center gap-1 shadow-sm transition-all duration-150">
+<span class="material-symbols-outlined text-[15px] text-outline">file_download</span>
+<span>Export SRT / JSON</span>
+</button>
+</div>
+</div>
+<!-- Split Layout Workstation -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-desktop">
+<!-- Left Pane: Media Canvas & Granular Timeline Deck (7 cols) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<!-- Master Video Canvas Container -->
+<div class="relative w-full aspect-video rounded-xl overflow-hidden bg-surface-container-lowest shadow-xl flex flex-col justify-end group">
+<!-- Video Player Visual Scene -->
+<img class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-95 transition-opacity duration-300" data-alt="Editorial video studio scene showing two media executives sitting across a dark walnut desk under warm spotlight and cinematic soft cyan backlighting, discussing business strategy with professional broadcast microphones and audio monitors in a soundproof room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY4PSu8yK_alBoQ7xzLN66s8PuSxTU3vEkE1Y8B6Xj5Jkf5HHFCeMLIsRrXPPbm1pqT3Iu6eQRjkb46WflwJrJV6lLs3diW7c74lfsfdxCXFNK3m5qDzd8YM0jDfnBwILEPj3F4S807dpbx3QFVF1XgJf4MW8oWXhla6_4EF0F3Cmtsel1lCCDNUScWKaGrpt-ynb3lQkCeMPvfQR3BLnMQlcIttDzb8BnYwfBc52t"/>
+<!-- Gradient Scrim for Controls Contrast -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent"></div>
+<!-- Diarization Speaker Label Watermark -->
+<div class="absolute top-4 left-4 z-10 flex items-center gap-2">
+<div class="px-space-sm py-1 rounded bg-surface-container-lowest/90 backdrop-blur-md flex items-center gap-2 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">SPEAKER 01: ALEX (HOST)</span>
+</div>
+<div class="px-space-sm py-1 rounded bg-surface-container-lowest/70 backdrop-blur-md font-label-sm text-label-sm text-outline">
+                PRORES 422 HQ
+              </div>
+</div>
+<!-- Active Captions Overlay Overlayed on Video -->
+<div class="relative z-10 px-space-lg mb-space-md text-center">
+<span class="inline-block px-space-md py-1.5 rounded-lg bg-surface-container-lowest/95 backdrop-blur-md text-on-surface font-body-md text-body-md font-medium shadow-lg max-w-2xl leading-relaxed">
+                "...viewers subconsciously flag it as an ad within 400 milliseconds. Authenticity requires friction."
+              </span>
+</div>
+<!-- On-Video Transport Control Deck -->
+<div class="relative z-10 px-space-md py-space-sm bg-surface-container-lowest/90 backdrop-blur-lg flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center hover:scale-105 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">replay_10</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">forward_10</span>
+</button>
+<div class="font-label-sm text-label-sm text-on-surface pl-space-xs">
+<span class="text-secondary font-semibold">14:40</span>
+<span class="text-outline"> / 48:12</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<!-- Speed Switcher -->
+<div class="flex items-center bg-surface-container-high rounded p-0.5">
+<button class="px-1.5 py-0.5 rounded text-outline hover:text-on-surface">1.0x</button>
+<button class="px-1.5 py-0.5 rounded bg-surface-container text-secondary font-medium">1.2x</button>
+<button class="px-1.5 py-0.5 rounded text-outline hover:text-on-surface">1.5x</button>
+</div>
+<!-- Resolution Token -->
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-medium">1080p60</span>
+<button class="p-1 text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Semantic Multi-Track Audio Waveform Deck -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">graphic_eq</span>
+<span class="text-on-surface font-medium">Multitrack Acoustic Waveform & Cognitive Markers</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="flex items-center gap-1 text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Viral Hook Peak
+                </span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Idea Cluster
+                </span>
+</div>
+</div>
+<!-- Waveform Visualizer SVG with Interactive Scrubber -->
+<div class="relative w-full h-24 bg-surface-container-lowest rounded-lg p-space-xs flex items-center overflow-hidden cursor-crosshair">
+<!-- Subtle chapter highlight zones in timeline -->
+<div class="absolute inset-y-0 left-0 w-[11%] bg-surface-container/40"></div>
+<div class="absolute inset-y-0 left-[11%] w-[28%] bg-secondary/10"></div>
+<div class="absolute inset-y-0 left-[39%] w-[27%] bg-surface-container/30"></div>
+<div class="absolute inset-y-0 left-[66%] right-0 bg-surface-container/40"></div>
+<!-- High retention hook highlight beacon -->
+<div class="absolute inset-y-0 left-[27%] w-[7%] bg-secondary/25"></div>
+<!-- Inline Waveform Dynamic Bars -->
+<svg class="w-full h-16 pointer-events-none" fill="none" preserveaspectratio="none" viewbox="0 0 800 64">
+<!-- Chapter 1 (0-88px) -->
+<path d="M4 32v6M12 28v12M20 24v18M28 30v7M36 22v22M44 26v14M52 29v8M60 20v24M68 25v16M76 30v6M84 27v11" stroke="#424754" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Chapter 2 [High viral hook area] (88-312px) -->
+<path d="M92 20v24M100 16v32M108 12v40M116 10v44M124 14v36M132 18v28M140 12v40M148 8v48M156 6v52M164 10v44M172 14v36M180 8v48M188 6v52M196 10v44M204 15v34M212 9v46M220 7v50M228 12v40M236 14v36M244 11v42M252 8v48M260 16v32M268 20v24M276 18v28M284 22v20M292 24v16M300 27v11M308 29v8" stroke="#4cd7f6" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Chapter 3 (312-528px) -->
+<path d="M316 26v14M324 22v20M332 19v26M340 15v34M348 18v28M356 22v20M364 25v14M372 20v24M380 16v32M388 14v36M396 18v28M404 22v20M412 17v30M420 15v34M428 19v26M436 21v22M444 24v16M452 20v24M460 16v32M468 18v28M476 22v20M484 26v14M492 28v10M500 24v16M508 27v11M516 29v7M524 30v5" stroke="#d0bcff" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Chapter 4 (528-800px) -->
+<path d="M532 28v8M540 25v14M548 20v24M556 16v32M564 18v28M572 22v20M580 25v14M588 20v24M596 18v28M604 15v34M612 19v26M620 22v20M628 26v14M636 24v16M644 20v24M652 17v30M660 19v26M668 22v20M676 25v14M684 28v10M692 26v12M700 22v20M708 25v14M716 28v9M724 30v6M732 29v7M740 31v4M748 30v5M756 28v9M764 30v6M772 31v4M780 30v5M788 31v3M796 32v2" stroke="#424754" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+<!-- Scrubber Needle (Positioned at 30.5% - exactly 14:40) -->
+<div class="absolute inset-y-0 left-[30.5%] flex flex-col items-center pointer-events-none z-20">
+<div class="px-1.5 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm shadow-md font-semibold -mt-2">
+                  14:40.18
+                </div>
+<div class="w-0.5 flex-1 bg-primary shadow-[0_0_8px_#adc6ff]"></div>
+<div class="w-2 h-2 rounded-full bg-primary mb-0.5"></div>
+</div>
+<!-- High retention badge indicator on timeline -->
+<div class="absolute top-1 left-[27%] z-10 flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-high/90 font-label-sm text-label-sm text-secondary">
+<span class="material-symbols-outlined text-[12px]">local_fire_department</span>
+<span>Viral Peak (Score: 94)</span>
+</div>
+</div>
+<!-- Waveform Footer Timecode Markers -->
+<div class="flex items-center justify-between font-label-sm text-label-sm text-outline px-1">
+<span>00:00</span>
+<span>10:00</span>
+<span>20:00</span>
+<span>30:00</span>
+<span>40:00</span>
+<span>48:12</span>
+</div>
+</div>
+<!-- Bottom Metric Strip for Media Health -->
+<div class="grid grid-cols-4 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase">Audio Clarity</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-semibold">99.8 dB</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">mic</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase">Speaking Pace</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">148 WPM</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">speed</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase">Hooks Found</span>
+<span class="font-headline-sm text-headline-sm text-tertiary font-semibold">8 Clips</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]">auto_videocam</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase">Confidence</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">98.2%</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+</div>
+</div>
+</div>
+<!-- Right Pane: Synchronized Transcript & Cognitive Synthesis Matrix (5 cols) -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<!-- Chapters & Transcript Deck -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-md flex flex-col h-full">
+<!-- Filter & Mode Header -->
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded-lg bg-surface-container text-on-surface font-body-sm text-body-sm font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">segment</span>
+<span>Diarized Transcript</span>
+</button>
+<button class="px-space-sm py-1 rounded-lg text-outline hover:text-on-surface font-body-sm text-body-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+<span>Semantic Chapters</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-lowest text-outline">
+                2 Speakers
+              </span>
+</div>
+<!-- In-Transcript Fast Search Bar -->
+<div class="relative my-space-xs">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-[16px] text-outline">search</span>
+<input class="w-full h-8 pl-8 pr-16 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Filter dialogue, claims, concepts..." type="text" value="subconsciously flag"/>
+<span class="absolute right-2.5 top-1.5 font-label-sm text-label-sm text-secondary font-medium">1 match</span>
+</div>
+<!-- Topic Chapter Accordion Strip -->
+<div class="my-space-xs flex flex-col gap-1.5">
+<div class="text-outline font-label-sm text-label-sm uppercase tracking-wider py-1">Identified Chapters</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest/60 hover:bg-surface-container flex items-center justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm text-outline shrink-0">[00:00 - 05:12]</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface truncate">Ch 1: The Death of Transactional Funnels</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-tertiary shrink-0">2 Seeds</span>
+</div>
+<!-- Active Highlighted Chapter -->
+<div class="p-2 rounded-lg bg-surface-container-high flex items-center justify-between cursor-pointer shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm text-secondary font-semibold shrink-0">[05:13 - 18:45]</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium truncate">Ch 2: Handheld Authenticity vs Studio Perfection</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-secondary-container/30 text-secondary font-medium shrink-0 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">bolt</span>
+                  Viral Hook
+                </span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest/60 hover:bg-surface-container flex items-center justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm text-outline shrink-0">[18:46 - 32:10]</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface truncate">Ch 3: Monetizing Trust Through Micro-Communities</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline shrink-0">1 Seed</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest/60 hover:bg-surface-container flex items-center justify-between cursor-pointer transition-colors group">
+<div class="flex items-center gap-2 min-w-0">
+<span class="font-label-sm text-label-sm text-outline shrink-0">[32:11 - 48:12]</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface truncate">Ch 4: Autonomous Media Infrastructure</span>
+</div>
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-tertiary shrink-0">4 Seeds</span>
+</div>
+</div>
+<!-- Synchronized Transcript Stream with Diarization -->
+<div class="mt-space-sm flex-1 flex flex-col gap-space-sm max-h-[340px] overflow-y-auto pr-1">
+<!-- Speaker Block 1 (Current Active Playing Moment) -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-1.5 shadow-sm transition-all duration-200">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded bg-primary/20 text-primary flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                      A
+                    </div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Alex (Host)</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">[14:40]</span>
+</div>
+<div class="flex items-center gap-1 opacity-80 hover:opacity-100">
+<button class="p-1 text-outline hover:text-on-surface" title="Sync Playhead">
+<span class="material-symbols-outlined text-[15px]">play_circle</span>
+</button>
+<button class="p-1 text-outline hover:text-tertiary" title="Clip this line">
+<span class="material-symbols-outlined text-[15px]">content_cut</span>
+</button>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+                  "The reason high-production camera setups fail on short-form is that viewers <mark class="bg-secondary/20 text-secondary px-1 py-0.2 rounded font-medium">subconsciously flag</mark> it as an ad within 400 milliseconds. Authenticity requires friction. The moment you introduce an Arri Alexa with cinema lenses to an Instagram feed, you've created an emotional distance."
+                </p>
+</div>
+<!-- Speaker Block 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/70 hover:bg-surface-container-lowest flex flex-col gap-1.5 transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded bg-tertiary/20 text-tertiary flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                      E
+                    </div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Elena (Guest)</span>
+<span class="font-label-sm text-label-sm text-outline">[15:02]</span>
+</div>
+<div class="flex items-center gap-1 opacity-70 hover:opacity-100">
+<button class="p-1 text-outline hover:text-on-surface" title="Sync Playhead">
+<span class="material-symbols-outlined text-[15px]">play_circle</span>
+</button>
+<button class="p-1 text-outline hover:text-tertiary" title="Clip this line">
+<span class="material-symbols-outlined text-[15px]">content_cut</span>
+</button>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  "Exactly. Vulnerability requires raw optics. The moment you introduce studio lighting, the defense barrier goes up. We saw conversion jump 42% just by downgrading our primary case study clips to an iPhone 15 Pro held at chest height in natural light."
+                </p>
+</div>
+<!-- Speaker Block 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/50 hover:bg-surface-container-lowest flex flex-col gap-1.5 transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded bg-primary/20 text-primary flex items-center justify-center font-label-sm text-label-sm font-semibold">
+                      A
+                    </div>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Alex (Host)</span>
+<span class="font-label-sm text-label-sm text-outline">[15:38]</span>
+</div>
+<div class="flex items-center gap-1 opacity-70 hover:opacity-100">
+<button class="p-1 text-outline hover:text-on-surface" title="Sync Playhead">
+<span class="material-symbols-outlined text-[15px]">play_circle</span>
+</button>
+<button class="p-1 text-outline hover:text-tertiary" title="Clip this line">
+<span class="material-symbols-outlined text-[15px]">content_cut</span>
+</button>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  "Which proves the thesis: the medium isn't just the message; the optical resolution dictates emotional receptivity."
+                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Extracted Cognitive Seeds & Repurposing Matrix Launchpad -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="p-1 rounded bg-tertiary-container/30 text-tertiary">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Extracted Cognitive Seeds & Core Theses</h3>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-container/30 text-tertiary font-medium">3 Ready to Harvest</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cognitive parser auto-isolated these thesis statements for atomic storage and cross-platform remixing.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="h-8 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-tertiary">bookmark_add</span>
+<span>Bookmark All (3)</span>
+</button>
+<button class="h-8 px-space-md rounded-lg bg-tertiary hover:bg-tertiary-container text-on-tertiary hover:text-on-tertiary-container font-body-sm text-body-sm font-medium flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]">move_to_inbox</span>
+<span>Batch Push to Idea Inbox</span>
+</button>
+</div>
+</div>
+<!-- 3 Atomic Cards Mosaic -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter-desktop pt-space-xs">
+<!-- Seed Card 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex flex-col justify-between shadow-sm hover:scale-[1.01] transition-transform duration-200 group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary font-medium">Hook Thesis</span>
+<span class="font-label-sm text-label-sm text-outline">@ 14:40 • Ep #47</span>
+</div>
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface pt-1 group-hover:text-primary transition-colors">
+              The 400ms Production Defense Barrier
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+              Viewers instantly register high-production studio lighting as commercial sales messaging. Frictionless raw optics dramatically outperform cinema glass on engagement loops.
+            </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-outline">
+<span class="material-symbols-outlined text-[14px] text-secondary">trending_up</span>
+<span>Predicted Viral Score: 94</span>
+</div>
+<button class="h-7 px-space-xs rounded bg-surface-container hover:bg-primary-container text-on-surface hover:text-on-primary-container font-label-sm text-label-sm font-medium flex items-center gap-1 transition-colors">
+<span>Send to Inbox</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Seed Card 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex flex-col justify-between shadow-sm hover:scale-[1.01] transition-transform duration-200 group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-tertiary font-medium">Economic Principle</span>
+<span class="font-label-sm text-label-sm text-outline">@ 22:15 • Ep #47</span>
+</div>
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface pt-1 group-hover:text-tertiary transition-colors">
+              Micro-Community Trust Compounding
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+              Broad broadcast audiences suffer from 90% churn. Micro-nodes of 500 hyper-aligned subscribers yield 12x higher lifetime customer value when anchored in editorial intimacy.
+            </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-outline">
+<span class="material-symbols-outlined text-[14px] text-tertiary">hub</span>
+<span>Connects to Brand DNA</span>
+</div>
+<button class="h-7 px-space-xs rounded bg-surface-container hover:bg-primary-container text-on-surface hover:text-on-primary-container font-label-sm text-label-sm font-medium flex items-center gap-1 transition-colors">
+<span>Send to Inbox</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Seed Card 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex flex-col justify-between shadow-sm hover:scale-[1.01] transition-transform duration-200 group">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-primary font-medium">Repurposing Format</span>
+<span class="font-label-sm text-label-sm text-outline">@ 34:02 • Ep #47</span>
+</div>
+<h4 class="font-body-lg text-body-lg font-semibold text-on-surface pt-1 group-hover:text-secondary transition-colors">
+              Autonomous Ingestion-to-Newsletter Flywheel
+            </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+              Extracting 1 master podcast into 3 atomic Substack deep-dives by matching diarized quotes with automated research references in real time.
+            </p>
+</div>
+<div class="pt-space-md flex items-center justify-between">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-outline">
+<span class="material-symbols-outlined text-[14px] text-primary">auto_awesome</span>
+<span>Newsletter Matrix Ready</span>
+</div>
+<button class="h-7 px-space-xs rounded bg-surface-container hover:bg-primary-container text-on-surface hover:text-on-primary-container font-label-sm text-label-sm font-medium flex items-center gap-1 transition-colors">
+<span>Send to Inbox</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

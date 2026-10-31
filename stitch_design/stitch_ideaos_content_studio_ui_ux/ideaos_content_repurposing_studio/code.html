@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary":"#d0bcff","surface":"#0f131c","on-tertiary-fixed-variant":"#5516be","outline-variant":"#424754","surface-container-lowest":"#0a0e16","on-secondary":"#003640","background":"#0f131c","on-secondary-container":"#00424e","surface-container-high":"#262a33","surface-bright":"#353942","surface-container-low":"#181c24","primary":"#adc6ff","inverse-surface":"#dfe2ee","on-primary-fixed":"#001a42","tertiary-fixed-dim":"#d0bcff","secondary":"#4cd7f6","error":"#ffb4ab","on-error":"#690005","secondary-fixed-dim":"#4cd7f6","inverse-on-surface":"#2c3039","surface-variant":"#31353e","on-primary":"#002e6a","primary-fixed":"#d8e2ff","surface-container":"#1c2028","surface-dim":"#0f131c","on-surface":"#dfe2ee","secondary-fixed":"#acedff","on-tertiary":"#3c0091","on-tertiary-fixed":"#23005c","secondary-container":"#03b5d3","on-tertiary-container":"#340080","on-primary-fixed-variant":"#004395","tertiary-container":"#a078ff","on-secondary-fixed":"#001f26","surface-container-highest":"#31353e","on-secondary-fixed-variant":"#004e5c","tertiary-fixed":"#e9ddff","error-container":"#93000a","inverse-primary":"#005ac2","on-background":"#dfe2ee","on-primary-container":"#00285d","primary-fixed-dim":"#adc6ff","primary-container":"#4d8eff","outline":"#8c909f","surface-tint":"#adc6ff","on-error-container":"#ffdad6","on-surface-variant":"#c2c6d6"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter-desktop":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem","margin-desktop":"2rem","space-md":"1rem","space-xl":"2.5rem","margin":"1rem","space-sm":"0.5rem","gutter":"1rem"},fontFamily:{"display-xl-mobile":["Geist"],"label-lg":["JetBrains Mono"],"label-md":["JetBrains Mono"],"label-sm":["JetBrains Mono"],"headline-sm":["Geist"],"headline-lg-mobile":["Geist"],"body-lg":["Geist"],"body-md":["Geist"],"headline-md":["Geist"],"display-xl":["Geist"],"headline-lg":["Geist"],"body-sm":["Geist"]},fontSize:{"display-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"label-md":["11px",{"lineHeight":"16px","letterSpacing":"0.03em","fontWeight":"500"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.04em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"500"}],"display-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest flex flex-col z-50"><div class="h-16 px-space-md flex items-center justify-between bg-surface-container-lowest"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded-lg bg-primary-container flex items-center justify-center"><span class="material-symbols-outlined text-on-primary-container text-[18px]">memory</span></div><div class="flex flex-col"><span class="font-headline-sm text-body-sm font-semibold tracking-wide text-on-surface uppercase">IdeaOS</span><span class="font-label-sm text-label-sm text-outline">Intelligence Core</span></div></div><div class="w-2 h-2 rounded-full bg-secondary"></div></div><div class="px-space-md py-space-sm"><button class="w-full h-9 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary flex items-center justify-between px-space-sm shadow-[0_1px_8px_rgba(0,0,0,0.2)] transition-all"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">bolt</span><span class="font-body-sm text-body-sm font-medium">Quick Capture</span></div><kbd class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-lowest text-on-surface-variant">⌘N</kbd></button></div><div class="flex-1 overflow-y-auto px-space-sm py-space-xs space-y-space-md"><nav class="space-y-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-medium rounded-lg"><div class="px-space-sm pt-space-xs pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Home</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">dashboard</span><span class="font-body-sm text-body-sm">Overview</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="quick-capture" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">flash_on</span><span class="font-body-sm text-body-sm">Quick Capture</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="notifications" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">notifications</span><span class="font-body-sm text-body-sm">Notifications</span></div><span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">3</span></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Creative Intelligence</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-inbox" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">inbox</span><span class="font-body-sm text-body-sm">Idea Inbox</span></div><span class="px-space-xs py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">14</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-fusion" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">auto_awesome</span><span class="font-body-sm text-body-sm">Idea Fusion</span></div><span class="px-space-xs py-0.5 rounded-full bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm">3 new</span></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-graph" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">hub</span><span class="font-body-sm text-body-sm">Idea Graph</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="idea-library" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">collections_bookmark</span><span class="font-body-sm text-body-sm">Idea Library</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Media Studio</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="video-and-podcast-ingestion-studio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">podcasts</span><span class="font-body-sm text-body-sm">Video & Podcast Studio</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="ai-clip-selection-studio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">video_file</span><span class="font-body-sm text-body-sm">Clip Selection Studio</span></div></a><a aria-current="page" class="flex items-center justify-between px-space-sm py-1.5 transition-colors bg-surface-container-high text-on-surface font-medium rounded-lg" data-path="content-repurposing-studio" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">transform</span><span class="font-body-sm text-body-sm">Content Repurposing</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-drafts" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">edit_note</span><span class="font-body-sm text-body-sm">Content Drafts</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Brand Intelligence</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="brand-dna-and-adaptive-brand-memory-suite" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">psychology</span><span class="font-body-sm text-body-sm">Brand DNA & Memory</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="voice-and-style-rules" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">tune</span><span class="font-body-sm text-body-sm">Voice & Style Rules</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Publishing</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-calendar" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">calendar_today</span><span class="font-body-sm text-body-sm">Content Calendar</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="publishing-pipeline" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">rocket_launch</span><span class="font-body-sm text-body-sm">Publishing Pipeline</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Analytics</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="performance-intelligence" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">analytics</span><span class="font-body-sm text-body-sm">Performance Intelligence</span></div></a><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="content-insights" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">insights</span><span class="font-body-sm text-body-sm">Content Insights</span></div></a><div class="px-space-sm pt-space-sm pb-0.5 font-label-sm text-label-sm text-outline uppercase tracking-wider">Settings</div><a class="flex items-center justify-between px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="workspace-and-integrations" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[18px]">settings</span><span class="font-body-sm text-body-sm">Workspace & Integrations</span></div></a></nav></div><div class="p-space-sm bg-surface-container-lowest"><div class="flex items-center justify-between p-space-xs rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors"><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col"><span class="font-body-sm text-body-sm font-medium text-on-surface leading-tight">Editorial Director</span><span class="font-label-sm text-label-sm text-outline">studio@ideaos.ai</span></div></div><button class="p-1 text-on-surface-variant hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.2)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm"><span class="text-on-surface font-medium">IdeaOS Studio</span><span class="text-outline">/</span><span>Command Console</span></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-[16px] text-outline">search</span><input class="w-64 h-8 pl-8 pr-12 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Search commands or ideas..." type="text"/><kbd class="absolute right-2 font-label-sm text-label-sm px-1 py-0.5 rounded bg-surface-container text-outline">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low"><div class="w-2 h-2 rounded-full bg-secondary animate-pulse"></div><span class="font-label-sm text-label-sm text-on-surface-variant">Brand Memory Sync:</span><span class="font-label-sm text-label-sm font-medium text-secondary">99.4%</span></div><button class="h-8 px-space-sm rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-body-sm text-body-sm font-medium flex items-center gap-space-xs transition-colors"><span class="material-symbols-outlined text-[16px]">add</span><span>Quick Capture</span></button><button class="relative p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 w-full bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Sub-Header Studio HUD -->
+<div class="relative px-space-lg py-space-md bg-surface-container-lowest/90 backdrop-blur-md">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<!-- Title & Context Telemetry -->
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-outline uppercase tracking-wider">
+<span>Media Studio</span>
+<span>/</span>
+<span class="text-secondary font-medium">Content Repurposing Matrix</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Session #SYN-8492</span>
+</div>
+<div class="flex items-baseline gap-space-md flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Multi-Platform Repurposing Studio</h1>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-secondary font-label-sm text-label-sm">Engine v4.2 Active</span>
+</div>
+<div class="flex items-center gap-space-md flex-wrap text-on-surface-variant font-body-sm text-body-sm pt-0.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-secondary">movie_edit</span>
+<span class="text-outline">Active Source:</span>
+<span class="font-medium text-on-surface">Episode #47 (Hook B: The Lo-Fi Camera Paradox)</span>
+<span class="text-outline">+</span>
+<span class="font-medium text-on-surface">Idea #34 (Handheld Video Memo)</span>
+</div>
+<div class="w-1 h-1 rounded-full bg-outline-variant"></div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">psychology</span>
+<span class="text-outline">Persona Sync:</span>
+<span class="font-medium text-tertiary">Alex Master 2025</span>
+<span class="text-on-surface-variant">(Zero Fluff, High Rigor)</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">100% Memory Fit</span>
+</div>
+</div>
+</div>
+<!-- Studio Quick Actions -->
+<div class="flex items-center gap-space-xs flex-wrap self-start lg:self-center">
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm font-medium flex items-center gap-space-xs transition-colors shadow-sm" id="regen-btn">
+<span class="material-symbols-outlined text-[16px] text-secondary">refresh</span>
+<span>Regenerate All Formats</span>
+</button>
+<button class="h-9 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm font-medium flex items-center gap-space-xs transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">file_download</span>
+<span>Export Formats</span>
+</button>
+<button class="h-9 px-space-md rounded-lg bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-body-sm text-body-sm font-semibold flex items-center gap-space-xs transition-all shadow-md">
+<span class="material-symbols-outlined text-[18px]">send_and_archive</span>
+<span>Push All Approved to Calendar (3)</span>
+</button>
+</div>
+</div>
+<!-- Omni-Channel Horizontal Pipeline Switcher -->
+<div class="mt-space-md flex items-center gap-space-xs overflow-x-auto pb-1">
+<button class="platform-tab flex items-center gap-space-xs px-space-sm py-2 rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium transition-all shadow-sm shrink-0" data-format="linkedin">
+<span class="material-symbols-outlined text-[18px] text-[#0A66C2]">post_add</span>
+<span>LinkedIn Thought Leadership</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm">Ready</span>
+</button>
+<button class="platform-tab flex items-center gap-space-xs px-space-sm py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-all shrink-0" data-format="carousel">
+<span class="material-symbols-outlined text-[18px] text-tertiary">view_carousel</span>
+<span>Instagram 5-Slide Carousel</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm">Ready</span>
+</button>
+<button class="platform-tab flex items-center gap-space-xs px-space-sm py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-all shrink-0" data-format="shorts">
+<span class="material-symbols-outlined text-[18px] text-error">smart_display</span>
+<span>60s Vertical Reel / Shorts Script</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm">Ready</span>
+</button>
+<button class="platform-tab flex items-center gap-space-xs px-space-sm py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-all shrink-0" data-format="twitter">
+<span class="material-symbols-outlined text-[18px] text-primary">tag</span>
+<span>X / Twitter Contrarian Thread</span>
+<span class="px-1.5 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm">Ready</span>
+</button>
+<button class="platform-tab flex items-center gap-space-xs px-space-sm py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-body-sm text-body-sm transition-all shrink-0" data-format="newsletter">
+<span class="material-symbols-outlined text-[18px] text-outline">mark_email_unread</span>
+<span>Weekly Newsletter Deep-Dive</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-highest text-outline font-label-sm text-label-sm">Draft</span>
+</button>
+</div>
+</div>
+<!-- Main Canvas Studio Dual-Pane Viewport -->
+<div class="p-space-lg grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<!-- Left Column: Realistic Platform Simulation (LinkedIn Focused) -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<!-- Section Meta Bar -->
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-outline uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px] text-secondary">desktop_windows</span>
+<span>Live Native Publishing Canvas</span>
+<span class="text-on-surface-variant">/</span>
+<span class="text-on-surface font-medium">LinkedIn Desktop Preview (100% Fidelity)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" id="copy-btn" title="Copy raw markdown">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" title="Toggle Mobile Mockup">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+</button>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary">1,142 Characters</span>
+</div>
+</div>
+<!-- The Real LinkedIn Post Card Mockup -->
+<div class="rounded-xl bg-surface-container-low shadow-xl overflow-hidden">
+<!-- Post Author Header -->
+<div class="p-space-md flex items-start justify-between bg-surface-container">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Headshot of Alex Vance, editorial director and founder of IdeaOS, photographed in a high-tech studio with soft directional teal ambient backlight and confident creative executive expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuChBxV4l_fV3fVoOwmCTGaX4ckhlENiYpQ8C8FRDoKgrotIAAay-Z91dS-WJ2LrT2S2Mf25DTbn-x5JLDVpxvftUuJiqQ66Fr-5Wky0tmYgRArBFwjFpziqFbVeb18l2fZLFlcLQAeA31gU0ghaJerSUYsPaOHxZEGjF8zowuEOCw34WXsO9tBJZZSAwBGoxBFoBXPD6o1w52xjcydVUtn3rnG28ZO6T_oMcDYLLoP_"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px] text-on-secondary font-bold">verified</span>
+</div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-headline-sm text-body-md font-semibold text-on-surface hover:underline cursor-pointer">Alex Vance</span>
+<span class="font-label-sm text-label-sm text-outline font-normal">• 1st</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Editorial Director & Founder at IdeaOS • AI Content Infrastructure</span>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-outline mt-0.5">
+<span>28,400 followers</span>
+<span>•</span>
+<span>Just now</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[12px]">public</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-outline">
+<button class="p-1.5 rounded hover:bg-surface-container-high hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Post Body Content -->
+<div class="px-space-lg py-space-md flex flex-col gap-space-md font-body-md text-body-md text-on-surface leading-relaxed">
+<p class="font-headline-sm text-headline-sm font-semibold text-on-surface tracking-tight" id="post-hook">
+            Stop spending $15,000 on studio cameras to tell LinkedIn you're an authentic founder.
+          </p>
+<p class="text-on-surface-variant">
+            Here is the counter-intuitive metric we learned after analyzing 48 podcast episodes:
+          </p>
+<div class="p-space-md rounded-lg bg-surface-container-high/60 backdrop-blur-sm flex items-start gap-space-sm">
+<div class="w-1.5 h-full rounded-full bg-secondary self-stretch"></div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Key Empiric Signal</span>
+<p class="font-headline-sm text-body-lg font-medium text-on-surface">
+                High-production camera setups yield <span class="text-secondary font-bold">3x LESS</span> audience retention if the emotional hook lacks handheld spontaneity.
+              </p>
+</div>
+</div>
+<p>
+            When you introduce multi-point studio lighting, 4K color grading, and teleprompters, your viewer's brain flags the content as a commercial within 400 milliseconds.
+          </p>
+<p>
+            The antidote isn't sloppy production. It's high-substance, low-friction delivery:
+          </p>
+<div class="flex flex-col gap-space-xs pl-space-xs">
+<div class="flex items-baseline gap-space-sm">
+<span class="font-label-md text-label-md text-secondary font-bold">01.</span>
+<span>Shoot the opening 15 seconds handheld on iPhone.</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-label-md text-label-md text-secondary font-bold">02.</span>
+<span>Deliver the single sharpest takeaway with zero preamble.</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-label-md text-label-md text-secondary font-bold">03.</span>
+<span>Save the high-fidelity diagram for slide 3.</span>
+</div>
+</div>
+<p class="pt-space-xs font-medium text-primary">
+            Are you still prioritizing production value over thesis clarity?
+          </p>
+<!-- Hashtags -->
+<div class="flex items-center gap-space-xs text-secondary font-body-sm text-body-sm flex-wrap pt-space-xs">
+<span class="hover:underline cursor-pointer">#ContentStrategy</span>
+<span class="hover:underline cursor-pointer">#CreatorOps</span>
+<span class="hover:underline cursor-pointer">#MediaProduction</span>
+<span class="hover:underline cursor-pointer">#AudienceRetention</span>
+</div>
+</div>
+<!-- Embedded Media Asset Attachment Preview -->
+<div class="mx-space-lg mb-space-md rounded-lg overflow-hidden bg-surface-container-lowest relative group">
+<div class="grid grid-cols-1 md:grid-cols-12 items-center">
+<!-- 9:16 Video Clip Thumb -->
+<div class="md:col-span-5 relative aspect-[9/16] max-h-72 overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="Vertical video screenshot frame showing a creator holding a mobile smartphone up-close in a moodily lit creative studio with natural grain, cyan key light, and active sound waveforms overlay." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmNx9a4BU_Naummy1L0mixKv3tbLkPppk_ZEL0org_ry_Bhz9VaWJ3KCBMtaZs-E0Z2BBKj8e8juq-R1t6HAVbCKMIXQ6lES_rl_pJVdeUoemohf8TJVZjntt2bX3WK4K5d8lPt4ArELkeRCFKTWX058sjfha_xuSYfuKgA5Ylq_TZJpu7CCAc36-TVL-6vfRO7SHpjv1Y4PxCNxPmBjSqSvHMU080klsi97DRIo04"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent"></div>
+<!-- Video Duration Pill & Lo-Fi Marker -->
+<div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur font-label-sm text-label-sm text-secondary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span>00:44 / 9:16 HD</span>
+</div>
+<!-- Play Button Overlay -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-11 h-11 rounded-full bg-primary/90 text-on-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer">
+<span class="material-symbols-outlined text-[24px]">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-2 left-2 right-2">
+<span class="font-label-sm text-label-sm text-on-surface truncate block">Clip 02_LoFi_Paradox.mp4</span>
+</div>
+</div>
+<!-- Attached Clip Telemetry Meta -->
+<div class="md:col-span-7 p-space-md flex flex-col justify-between self-stretch bg-surface-container-low">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold">AI Extracted Clip</span>
+<span class="font-label-sm text-label-sm text-outline">Score: 98/100 Hook Rating</span>
+</div>
+<h4 class="font-headline-sm text-body-md font-semibold text-on-surface">The 400ms Commercial Detection Glitch</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-3">
+                  Key spoken moment from Episode 47 where Alex breaks down fMRI data comparing handheld TikTok UGC against multi-cam Netflix aesthetic pods.
+                </p>
+</div>
+<div class="mt-space-md flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">closed_caption</span>
+<span>Kinetic Captions Embedded</span>
+</div>
+<button class="font-body-sm text-body-sm text-secondary hover:text-primary font-medium flex items-center gap-0.5">
+<span>Trim clip</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Simulated Engagement Stats Footer -->
+<div class="px-space-lg py-2 flex items-center justify-between text-outline font-label-sm text-label-sm bg-surface-container/40">
+<div class="flex items-center gap-1">
+<span class="flex -space-x-1">
+<span class="w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary">👍</span>
+<span class="w-4 h-4 rounded-full bg-secondary flex items-center justify-center text-[10px] text-on-secondary">💡</span>
+<span class="w-4 h-4 rounded-full bg-error flex items-center justify-center text-[10px] text-on-error">❤️</span>
+</span>
+<span class="ml-1 text-on-surface-variant">84 Likes</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span>19 comments</span>
+<span>•</span>
+<span>12 reposts</span>
+</div>
+</div>
+<!-- Simulated Social Actions Bar -->
+<div class="px-space-md py-1.5 flex items-center justify-around bg-surface-container text-on-surface-variant font-body-sm text-body-sm">
+<button class="flex items-center gap-1.5 px-space-sm py-1.5 rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span class="font-medium">Like</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-sm py-1.5 rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>
+<span class="font-medium">Comment</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-sm py-1.5 rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">repeat</span>
+<span class="font-medium">Repost</span>
+</button>
+<button class="flex items-center gap-1.5 px-space-sm py-1.5 rounded hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span class="font-medium">Send</span>
+</button>
+</div>
+</div>
+<!-- Quick Platform Performance Forecast Metric Bento -->
+<div class="grid grid-cols-3 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Algorithmic Velocity</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">trending_up</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">9.4<span class="font-label-sm text-label-sm text-outline">/10</span></span>
+<span class="font-label-sm text-label-sm text-secondary">High Early Comment Density Expected</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Scroll Stop Rate</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">pan_tool</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">78.2%</span>
+<span class="font-label-sm text-label-sm text-primary">+21% vs 30-day baseline</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Ideal Posting Slot</span>
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Tomorrow</span>
+<span class="font-label-sm text-label-sm text-outline">11:30 AM EST (Peak Feed Depth)</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Creator Edit & AI Prompting Suite -->
+<div class="xl:col-span-5 flex flex-col gap-space-md">
+<!-- Section Meta Bar -->
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-outline uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px] text-tertiary">auto_fix_high</span>
+<span>Adaptive Synthesis Control</span>
+<span class="text-on-surface-variant">/</span>
+<span class="text-on-surface font-medium">Model Refinement</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-outline">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Claude 3.7 Sonnet Active</span>
+</div>
+</div>
+<!-- Quick AI Polish Micro-Pills -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">One-Click Hook & Length Polishes</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Instant Transform</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="ai-polish-btn p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-left flex items-center gap-space-xs transition-colors group" data-polish="punch">
+<span class="material-symbols-outlined text-[16px] text-secondary group-hover:scale-110 transition-transform">bolt</span>
+<span class="font-body-sm text-body-sm text-on-surface">Punch up opening hook</span>
+</button>
+<button class="ai-polish-btn p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-left flex items-center gap-space-xs transition-colors group" data-polish="shorten">
+<span class="material-symbols-outlined text-[16px] text-primary group-hover:scale-110 transition-transform">compress</span>
+<span class="font-body-sm text-body-sm text-on-surface">Shorten by 25%</span>
+</button>
+<button class="ai-polish-btn p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-left flex items-center gap-space-xs transition-colors group" data-polish="statistic">
+<span class="material-symbols-outlined text-[16px] text-tertiary group-hover:scale-110 transition-transform">analytics</span>
+<span class="font-body-sm text-body-sm text-on-surface">Inject contrarian stat</span>
+</button>
+<button class="ai-polish-btn p-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-left flex items-center gap-space-xs transition-colors group" data-polish="tone">
+<span class="material-symbols-outlined text-[16px] text-secondary group-hover:scale-110 transition-transform">mood</span>
+<span class="font-body-sm text-body-sm text-on-surface">Shift: Playful & Direct</span>
+</button>
+</div>
+<!-- Custom Prompt Input -->
+<div class="mt-space-xs relative">
+<input class="w-full h-9 pl-3 pr-20 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Custom synthesis prompt: e.g., 'Emphasize the audio quality aspect'..." type="text"/>
+<button class="absolute right-1.5 top-1.5 h-6 px-2.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-medium hover:bg-primary-container transition-colors flex items-center gap-1">
+<span>Apply</span>
+<span class="material-symbols-outlined text-[12px]">send</span>
+</button>
+</div>
+</div>
+<!-- Brand Voice Guardrails & Memory Inspector -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">verified_user</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-on-surface">Brand Voice Guardrails & Safety</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">100% Strict</span>
+</div>
+<!-- Buzzword Check -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Corporate Fluff Expelled</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              0 corporate buzzwords detected. Prohibited terms (<code class="font-label-sm text-label-sm text-error bg-surface-container-lowest px-1 py-0.5 rounded">delve</code>, <code class="font-label-sm text-label-sm text-error bg-surface-container-lowest px-1 py-0.5 rounded">synergy</code>, <code class="font-label-sm text-label-sm text-error bg-surface-container-lowest px-1 py-0.5 rounded">leverage</code>) successfully omitted.
+            </p>
+</div>
+</div>
+<!-- Vocabulary Signature Match -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5">neurology</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Vocabulary Matched (3 Signature Anchors)</span>
+<div class="flex items-center gap-1.5 flex-wrap mt-1">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-tertiary font-label-sm text-label-sm font-medium">“cognitive second brain”</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-tertiary font-label-sm text-label-sm font-medium">“high-substance delivery”</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-tertiary font-label-sm text-label-sm font-medium">“thesis clarity”</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Multi-Platform Batch Output Status List -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider text-outline">Omni-Channel Synthesis Pipeline</span>
+<span class="font-label-sm text-label-sm text-secondary">4 of 5 Generated</span>
+</div>
+<!-- Queue Item 1: Carousel -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-tertiary-container/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">view_carousel</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">5-Slide Instagram Carousel</span>
+<span class="font-label-sm text-label-sm text-outline">Swipe Deck • Dark Minimal Figma Assets</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm">5 Slides Ready</span>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Queue Item 2: X Thread -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary-container/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">tag</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">X / Twitter Contrarian Thread</span>
+<span class="font-label-sm text-label-sm text-outline">7 Tweets Structured • High Curiosity Gap</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm">7 Posts Ready</span>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Queue Item 3: YouTube Shorts Teleprompter -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-error-container/30 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[18px]">smart_display</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">YouTube Shorts & Reels Script</span>
+<span class="font-label-sm text-label-sm text-outline">Timed teleprompter speed + B-Roll cues</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm">45s Teleprompter</span>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Queue Item 4: Newsletter Draft -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors opacity-75">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[18px]">mark_email_unread</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">Weekly Newsletter Deep-Dive</span>
+<span class="font-label-sm text-label-sm text-outline">Synthesizing full 1,800 word case study...</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-outline font-label-sm text-label-sm">Drafting (60%)</span>
+<div class="w-3.5 h-3.5 rounded-full border-2 border-secondary border-t-transparent animate-spin"></div>
+</div>
+</div>
+</div>
+<!-- Primary Decision & Hand-off Actions -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-sm shadow-md">
+<button class="w-full h-11 rounded-lg bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container font-body-sm text-body-sm font-semibold flex items-center justify-center gap-space-xs transition-all shadow-lg" id="approve-btn">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>Approve & Schedule for Tomorrow (11:30 AM EST)</span>
+</button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium flex items-center justify-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px] text-outline">save</span>
+<span>Save as Draft</span>
+</button>
+<button class="h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-body-sm text-body-sm font-medium flex items-center justify-center gap-space-xs transition-colors">
+<span class="material-symbols-outlined text-[16px] text-tertiary">send</span>
+<span>Send for Sign-off</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 px-space-md py-space-sm rounded-lg bg-surface-container-highest text-on-surface font-body-sm text-body-sm shadow-xl flex items-center gap-space-sm opacity-0 pointer-events-none transition-all duration-300 z-50" id="toast">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span id="toast-message">LinkedIn post copy copied to clipboard!</span>
+</div>
+</div>
+<script>
+  // Micro-interactions and Studio State Management
+  const toast = document.getElementById('toast');
+  const toastMessage = document.getElementById('toast-message');
+
+  function showToast(msg) {
+    if (!toast) return;
+    toastMessage.textContent = msg;
+    toast.classList.remove('opacity-0', 'pointer-events-none');
+    toast.classList.add('opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('opacity-100');
+      toast.classList.add('opacity-0', 'pointer-events-none');
+    }, 2800);
+  }
+
+  // Copy Markdown to Clipboard
+  const copyBtn = document.getElementById('copy-btn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard?.writeText(
+        `Stop spending $15,000 on studio cameras to tell LinkedIn you're an authentic founder.\n\nHere is the counter-intuitive metric we learned after analyzing 48 podcast episodes:\n\nHigh-production camera setups yield 3x LESS audience retention if the emotional hook lacks handheld spontaneity.\n\nWhen you introduce multi-point studio lighting, 4K color grading, and teleprompters, your viewer's brain flags the content as a commercial within 400 milliseconds.\n\nThe antidote isn't sloppy production. It's high-substance, low-friction delivery:\n1. Shoot the opening 15 seconds handheld on iPhone.\n2. Deliver the single sharpest takeaway with zero preamble.\n3. Save the high-fidelity diagram for slide 3.\n\nAre you still prioritizing production value over thesis clarity?`
+      );
+      showToast('LinkedIn formatted copy copied to clipboard!');
+    });
+  }
+
+  // Interactive AI Polish Actions
+  const polishButtons = document.querySelectorAll('.ai-polish-btn');
+  const postHook = document.getElementById('post-hook');
+
+  polishButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const polishType = btn.getAttribute('data-polish');
+      if (polishType === 'punch') {
+        postHook.textContent = 'Your $15,000 RED camera setup is actively tanking your video retention.';
+        showToast('Hook updated: High-impact punch applied.');
+      } else if (polishType === 'shorten') {
+        showToast('Trimmed by 25%: Removed redundant qualifiers.');
+      } else if (polishType === 'statistic') {
+        showToast('Injected Stat: 400ms neural commercial detection metric reinforced.');
+      } else if (polishType === 'tone') {
+        showToast('Tone modified: Switched to Direct/Playful.');
+      }
+    });
+  });
+
+  // Schedule Confirmation
+  const approveBtn = document.getElementById('approve-btn');
+  if (approveBtn) {
+    approveBtn.addEventListener('click', () => {
+      approveBtn.classList.add('bg-secondary', 'text-on-secondary');
+      approveBtn.innerHTML = `<span class="material-symbols-outlined text-[20px]">task_alt</span> Scheduled for Tomorrow 11:30 AM EST`;
+      showToast('Scheduled! LinkedIn post queued in publishing engine.');
+    });
+  }
+
+  // Regeneration Visual Effect
+  const regenBtn = document.getElementById('regen-btn');
+  if (regenBtn) {
+    regenBtn.addEventListener('click', () => {
+      showToast('Regenerating 5 cross-platform formats with brand memory...');
+    });
+  }
+
+  // Tab State Switcher
+  const platformTabs = document.querySelectorAll('.platform-tab');
+  platformTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      platformTabs.forEach(t => {
+        t.classList.remove('bg-surface-container-high', 'font-medium');
+        t.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      tab.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      tab.classList.add('bg-surface-container-high', 'text-on-surface', 'font-medium');
+      const format = tab.getAttribute('data-format');
+      showToast(`Switched active studio focus to: ${format.toUpperCase()}`);
+    });
+  });
+</script></main></div></body></html>
