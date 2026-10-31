@@ -22,15 +22,18 @@ const DEFAULT_CLIP: ClipOpportunity = {
 
 interface ContentRepurposingStudioProps {
   selectedClip?: ClipOpportunity;
+  ideaId?: string;
   onNavigateToCalendar: () => void;
   onNavigateToBrand: () => void;
 }
 
 export function ContentRepurposingStudio({
   selectedClip = DEFAULT_CLIP,
+  ideaId,
   onNavigateToCalendar,
   onNavigateToBrand,
 }: ContentRepurposingStudioProps) {
+  const currentIdeaId = ideaId || (selectedClip as any)?.idea_id || `idea-${selectedClip.clip_id}`;
   const [platform, setPlatform] = useState<"linkedin" | "twitter" | "instagram" | "youtube">("linkedin");
   const [generating, setGenerating] = useState(false);
   const [approving, setApproving] = useState(false);
@@ -49,7 +52,7 @@ export function ContentRepurposingStudio({
     setApprovalMessage(null);
     try {
       const gen = await api.generateContent({
-        idea_id: "00000000-0000-0000-0000-000000000001",
+        idea_id: currentIdeaId,
         clip_title: selectedClip.title,
         key_quote: selectedClip.key_quote,
         selection_reason: selectedClip.selection_reason,
@@ -82,7 +85,7 @@ export function ContentRepurposingStudio({
       const originalFull = `${content.hook}\n\n${content.body}\n\n${content.cta || ""}`;
 
       const res = await api.approveAndLearn({
-        idea_id: "00000000-0000-0000-0000-000000000001",
+        idea_id: currentIdeaId,
         platform,
         format: platform === "twitter" ? "thread" : "post",
         original_content: originalFull,

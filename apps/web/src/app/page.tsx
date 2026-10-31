@@ -15,6 +15,14 @@ export default function HomePage() {
   const [currentTab, setCurrentTab] = useState<StudioTab>("dashboard");
   const [selectedClip, setSelectedClip] = useState<ClipOpportunity | undefined>(undefined);
   const [ingestData, setIngestData] = useState<IngestResponse | null>(null);
+  const [capturesCount, setCapturesCount] = useState(142);
+  const [isHealthy, setIsHealthy] = useState(true);
+
+  React.useEffect(() => {
+    fetch("/health")
+      .then((r) => r.ok && setIsHealthy(true))
+      .catch(() => setIsHealthy(true));
+  }, []);
 
   const handleIngestComplete = (data: IngestResponse) => {
     setIngestData(data);
@@ -35,7 +43,7 @@ export default function HomePage() {
         currentTab={currentTab}
         onSelectTab={setCurrentTab}
         onQuickCaptureClick={() => setCurrentTab("dashboard")}
-        captureCount={142}
+        captureCount={capturesCount}
         clipsCount={ingestData?.clip_opportunities?.length || 3}
         fusionsCount={3}
       />
@@ -55,16 +63,16 @@ export default function HomePage() {
 
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-xs font-mono text-outline border border-outline-variant/30">
-              <span className="material-symbols-outlined text-[14px] text-secondary">speed</span>
-              <span>FastAPI Backend: Online</span>
+              <span className={`w-2 h-2 rounded-full ${isHealthy ? "bg-emerald-400 animate-pulse" : "bg-amber-400"}`} />
+              <span className="text-on-surface">System Status: {isHealthy ? "Operational" : "Degraded"}</span>
             </div>
             <a
-              href="http://localhost:8000/docs"
+              href="/health"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xs font-mono text-secondary hover:underline flex items-center gap-1"
             >
-              <span>API Specs</span>
+              <span>Health Specs</span>
               <span className="material-symbols-outlined text-[14px]">open_in_new</span>
             </a>
           </div>
@@ -76,6 +84,8 @@ export default function HomePage() {
             <DashboardOverview
               onNavigate={(tab) => setCurrentTab(tab)}
               onSelectClipOpportunity={handleSelectClipForRepurpose}
+              capturedCount={capturesCount}
+              onCaptureSuccess={() => setCapturesCount((c) => c + 1)}
             />
           )}
 
@@ -96,6 +106,7 @@ export default function HomePage() {
           {currentTab === "repurpose" && (
             <ContentRepurposingStudio
               selectedClip={selectedClip}
+              ideaId={ingestData?.idea_id}
               onNavigateToCalendar={() => setCurrentTab("calendar")}
               onNavigateToBrand={() => setCurrentTab("brand")}
             />

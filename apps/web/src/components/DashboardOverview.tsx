@@ -6,9 +6,11 @@ import { api } from "@/lib/api";
 interface DashboardOverviewProps {
   onNavigate: (tab: any) => void;
   onSelectClipOpportunity?: (clip: any) => void;
+  capturedCount?: number;
+  onCaptureSuccess?: () => void;
 }
 
-export function DashboardOverview({ onNavigate }: DashboardOverviewProps) {
+export function DashboardOverview({ onNavigate, capturedCount = 142, onCaptureSuccess }: DashboardOverviewProps) {
   const [quickThought, setQuickThought] = useState("");
   const [capturing, setCapturing] = useState(false);
   const [captureMessage, setCaptureMessage] = useState<string | null>(null);
@@ -22,10 +24,12 @@ export function DashboardOverview({ onNavigate }: DashboardOverviewProps) {
       await api.quickCapture(quickThought.trim());
       setCaptureMessage(`Idea buffered into Unreviewed Inbox: "${quickThought.slice(0, 38)}..."`);
       setQuickThought("");
+      onCaptureSuccess?.();
       setTimeout(() => setCaptureMessage(null), 4000);
     } catch {
       setCaptureMessage("Idea captured in local buffer.");
       setQuickThought("");
+      onCaptureSuccess?.();
       setTimeout(() => setCaptureMessage(null), 3000);
     } finally {
       setCapturing(false);
@@ -58,7 +62,7 @@ export function DashboardOverview({ onNavigate }: DashboardOverviewProps) {
             <div className="px-3 py-2 text-center sm:text-left">
               <div className="text-[11px] font-mono text-outline">Captured Ideas</div>
               <div className="text-xl text-on-surface font-semibold flex items-baseline gap-1">
-                142 <span className="text-[10px] font-mono text-secondary">+12%</span>
+                {capturedCount} <span className="text-[10px] font-mono text-secondary">+Live</span>
               </div>
             </div>
             <div className="px-3 py-2 text-center sm:text-left border-l border-outline-variant/30">

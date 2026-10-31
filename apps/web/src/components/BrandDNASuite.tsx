@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { LearnedRule } from "@/lib/api";
+import React, { useState, useEffect } from "react";
+import { api, LearnedRule } from "@/lib/api";
 
 const INITIAL_RULES: LearnedRule[] = [
   {
@@ -52,6 +52,31 @@ export function BrandDNASuite() {
   const [wit, setWit] = useState(42);
   const [provocativeness, setProvocativeness] = useState(78);
   const [savedNotice, setSavedNotice] = useState(false);
+  const [isLoadingRules, setIsLoadingRules] = useState(false);
+
+  useEffect(() => {
+    setIsLoadingRules(true);
+    api.getBrandRules()
+      .then((backendRules: any[]) => {
+        if (backendRules && backendRules.length > 0) {
+          const formatted: LearnedRule[] = backendRules.map((r: any, idx: number) => ({
+            rule_type: r.rule_type || "tone_constraint",
+            pattern: r.pattern || `learned_rule_${idx + 1}`,
+            severity: r.severity || "info",
+            message: r.instruction || r.message || "Rule learned from creator edits",
+            examples: r.examples || ["Derived from creator edit & approve flow"],
+            applies_to: r.applies_to || ["all"],
+          }));
+          setRules(prev => {
+            const existingMessages = new Set(prev.map(p => p.message));
+            const newOnes = formatted.filter(f => !existingMessages.has(f.message));
+            return [...newOnes, ...prev];
+          });
+        }
+      })
+      .catch((err) => console.warn("Failed to fetch brand rules:", err))
+      .finally(() => setIsLoadingRules(false));
+  }, []);
 
   const handleAddBannedWord = (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,8 +115,9 @@ export function BrandDNASuite() {
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono">
-            Memory Synchronized (99.4%)
+          <span className="px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            {isLoadingRules ? "Synchronizing..." : `${rules.length} Rules in Memory`}
           </span>
         </div>
       </div>
