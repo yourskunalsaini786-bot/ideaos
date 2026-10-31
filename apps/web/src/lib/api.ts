@@ -123,6 +123,17 @@ export const api = {
     return data;
   },
 
+  async ingestUrl(url: string, title?: string): Promise<IngestResponse> {
+    const res = await fetch(`${API_BASE_URL}/repurpose/ingest-url`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url, title }),
+    });
+    if (!res.ok) throw new Error(`URL Ingest failed: ${await res.text()}`);
+    const data = await res.json();
+    return data;
+  },
+
   async generateContent(payload: {
     idea_id: string;
     clip_title: string;

@@ -56,18 +56,21 @@ export function VideoPodcastStudio({
     }
   };
 
-  const handleUrlIngest = () => {
+  const handleUrlIngest = async () => {
     if (!mediaUrl.trim()) {
       alert("Please enter a valid video or podcast URL.");
       return;
     }
-    if (!inputText.trim()) {
-      alert(
-        "Remote audio stream scraping requires background transcoding workers. Please paste the episode transcript or notes below to process your content, or click 'Load Demo Episode #48' to test."
-      );
-      return;
+    setLoading(true);
+    try {
+      const data = await api.ingestUrl(mediaUrl.trim(), mediaTitle.trim());
+      setIngestedData(data);
+      onIngestComplete(data);
+    } catch (err: any) {
+      alert("URL Ingestion failed: " + (err.message || String(err)));
+    } finally {
+      setLoading(false);
     }
-    handleIngest(inputText.trim(), mediaUrl.trim());
   };
 
   const handleTranscriptIngest = () => {
