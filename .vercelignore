@@ -1,0 +1,5 @@
+# Prevent heavy Python backend from being included in Next.js Lambda bundle
+apps/api/
+.git
+.pytest_cache/
+tests/
