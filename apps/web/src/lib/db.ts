@@ -4,6 +4,7 @@ const FALLBACK_DB_URL =
   "postgresql://neondb_owner:npg_ZkeEbI8K7XRL@ep-wispy-brook-b5hjt92z-pooler.c-7.us-east-2.aws.neon.tech/neondb?sslmode=require";
 
 export const DEFAULT_WORKSPACE_ID = "0386b534-0330-4743-a95a-e1df6a25bfde";
+export const DEFAULT_USER_ID = "e8091198-146c-4c2b-b054-1a7e6aee4bc0";
 
 /**
  * Returns a serverless Neon SQL query runner over HTTP.
